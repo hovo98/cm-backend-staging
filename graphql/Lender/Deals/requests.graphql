@@ -1,0 +1,4 @@
+extend type Query {
+    lenderDealsIndividualQuotes(input: LenderDealsIndividualQuotesInput @spread): LenderDealsIndividualQuotesType @inject(context: "user.id", name: "user_id") @field(resolver: "App\\GraphQL\\Requests\\Lender\\Deals\\IndividualQuotes") @guard @can(ability: "isLender", model: "App\\User")
+    getDealForCreateQuote(input: DealRequestForQuoteCreateForm @spread): DealForQuoteCreateForm @inject(context: "user.id", name: "user_id") @field(resolver: "App\\GraphQL\\Requests\\Lender\\Deals\\DealForQuoteCreateForm") @guard @can(ability: "isLender", model: "App\\User")
+}

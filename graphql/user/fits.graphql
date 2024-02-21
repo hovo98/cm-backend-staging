@@ -1,0 +1,107 @@
+input AreaInput {
+    area: AddressInput!
+    exclusions: [AddressInput]
+}
+
+type Area {
+    area: Address
+    exclusions: [Address]
+}
+
+input AddressInput {
+    formatted_address: String!
+    place_id: String!
+    long_name: String!
+    lat: Float!
+    long: Float!
+    polygon_location: String!
+    county: String
+    sublocality: String
+    city: String
+    country: String
+    state: String
+    zip_code: String
+    fips_code: String
+}
+
+type Address {
+    formatted_address: String
+    place_id: String
+    long_name: String
+    lat: Float
+    long: Float
+    polygon_location: String
+    county: String
+    sublocality: String
+    city: String
+    country: String
+    state: String
+    zip_code: String
+    fips_code: String
+}
+
+enum FitType {
+    PERFECT
+    CLOSE
+}
+
+input LoanSizeInput {
+    min: Int!
+    max: Int!
+}
+
+type LoanSize {
+    min: Int
+    max: Int
+}
+
+input CreateFitInput {
+    token: String!
+    type: FitType!
+    areas: [AreaInput]!
+    loan_size: LoanSizeInput!
+    asset_types: [Int]!
+    multifamily: MultifamilyInput
+    recaptcha:String! @rules(apply: ["required"])
+    other_asset_types: [Int]
+}
+
+input UpdateFitInput {
+    type: FitType!
+    areas: [AreaInput]!
+    loan_size: LoanSizeInput!
+    asset_types: [Int]!
+    type_of_loans: [Int]!
+    multifamily: MultifamilyInput
+    other_asset_types: [Int]
+    type_of_loans: [Int]
+}
+
+type UpdateFitResponse {
+    message: String!
+    success: Boolean!
+}
+
+type GetFitResponse {
+    areas: [Area]
+    loan_size: LoanSize
+    asset_types: [Int]
+    multifamily: Multifamily
+    other_asset_types: [Int]
+    type_of_loans: [Int]
+    show_type_of_loans: Boolean
+}
+
+type Multifamily {
+    min_amount: Int
+    max_amount: Int
+}
+
+input MultifamilyInput {
+    min_amount: Int
+    max_amount: Int
+}
+
+input TypeOfLoansInput {
+    type_of_loans: [Int]!
+}

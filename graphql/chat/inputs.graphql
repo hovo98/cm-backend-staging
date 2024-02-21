@@ -1,0 +1,19 @@
+
+input sendMessageLenderInput {
+    msg: String!
+    room_id: Float!
+    deal_id: Int!
+    forbidden_msg: Boolean!
+}
+
+input sendMessageBrokerInput {
+    msg: String!
+    room_id: Float!
+    deal_id: Int!
+    lender_id: Int!
+    forbidden_msg: Boolean!
+}
+
+input arrayOfSeenIds {
+    seen: [Int]
+}

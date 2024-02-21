@@ -1,0 +1,6 @@
+extend type Query {
+    brokerDealsIndividual(input: BrokerDealsIndividualInput @spread): [BrokerDealsIndividualType] @inject(context: "user.id", name: "user_id") @field(resolver: "App\\GraphQL\\Requests\\Broker\\Deals\\Individual") @guard @can(ability: "isBroker", model: "App\\User")
+    brokerDealsSetTermsheet(input: BrokerDealsSetTermsheet @spread): ResponseStatus @inject(context: "user.id", name: "user_id") @field(resolver: "App\\GraphQL\\Requests\\Broker\\Deals\\SetTermsheet") @guard @can(ability: "isBroker", model: "App\\User")
+
+}
+

@@ -1,0 +1,39 @@
+<mjml>
+	<mj-head>
+		<mj-font name="OpenSans" href="https://fonts.googleapis.com/css2?family=Open+Sans" />
+		<mj-style>
+			.basic-text a {
+				color: #f7ab42 !important;
+				text-decoration: underline !important;
+			}
+
+			.basic-text strong {
+				color: #045d63 !important;
+			}
+		</mj-style>
+	</mj-head>
+	<mj-body>
+		<mj-section background-color="#fff" padding="54px 4% 15px 4%">
+			<mj-column>
+				<mj-image width="241px" src="{{ asset('img/email/email_logo.png') }}" alt="Finance Lobby - The CRE Financing Marketplace"></mj-image>
+			</mj-column>
+		</mj-section>
+		<mj-wrapper padding="40px 4% 20px" background-color="#fff">
+			<mj-section background-color="#f0f7f7" padding="55px 1% 60px">
+				<mj-column>
+          <mj-text font-size="16px" color="#3e2636" font-weight="400" font-family="OpenSans, Arial" align="center" line-height="28px" css-class="basic-text">Hi,<br/>{{ $senderName }} would like to share a {{ $dollarAmount  }} {{ $loanType  }} deal with you on Finance Lobby.<br/>It looks like you’re new to the platform. To view the details of this deal, please <a href="{{ $url }}">create a profile</a></mj-text>
+          <mj-text font-size="20px" color="#3e2636" font-weight="700" font-family="OpenSans, Arial" align="center" padding-bottom="25px">Finance Lobby matches commercial real estate lenders with precisely the deals they want.</mj-text>
+          <mj-text font-size="16px" color="#3e2636" font-weight="700" font-family="OpenSans, Arial" align="center" padding-bottom="25px">How it works</mj-text>
+					<mj-text font-size="15px" color="#3e2636" font-weight="400" font-family="OpenSans, Arial" align="center" line-height="28px" css-class="basic-text">1. Create your profile. All it takes is 90 seconds and zero credit cards.<br/>2. Tell us precisely what kind of deals you love - size, type, area, etc.<br/>3. That’s it! We’ll email you leads that match those parameters precisely.</mj-text>
+				</mj-column>
+			</mj-section>
+		</mj-wrapper>
+        <mj-section background-color="#055d64" padding="40px">
+			<mj-column>
+                <!-- {{ asset('img/email/email_logo.png') }} -->
+				<mj-image width="145px" src="{{ asset('img/email/email_logo_footer.png') }}" alt="Finance Lobby - The CRE Financing Marketplace"></mj-image>
+                <mj-text font-size="13px" color="#ececec" font-weight="300" font-family="OpenSans, Arial" align="center" line-height="15px">&copy; Finance Lobby {{ $currentYear }}</mj-text>
+			</mj-column>
+		</mj-section>
+	</mj-body>
+</mjml>

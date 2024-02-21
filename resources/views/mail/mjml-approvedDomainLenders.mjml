@@ -1,0 +1,47 @@
+<mjml>
+	<mj-head>
+		<mj-font name="OpenSans" href="https://fonts.googleapis.com/css2?family=Open+Sans" />
+		<mj-style>
+			.basic-text a {
+				color: #f7ab42 !important;
+				text-decoration: underline !important;
+			}
+
+			.basic-text strong {
+				color: #045d63 !important;
+			}
+		</mj-style>
+	</mj-head>
+	<mj-body>
+		<mj-section background-color="#fff" padding="54px 4% 15px 4%">
+			<mj-column>
+				<mj-image width="241px" src="{{ asset('img/email/email_logo.png') }}" alt="Finance Lobby - The CRE Financing Marketplace"></mj-image>
+			</mj-column>
+		</mj-section>
+		<mj-wrapper padding="40px 4% 20px" background-color="#fff">
+			<mj-section background-color="#f0f7f7" padding="55px 1% 0">
+				<mj-column>
+					<mj-image width="115px" padding-bottom="40px" src="{{ asset('img/email/approved-account.png') }}" alt="Icon with checkmark"></mj-image>
+					<mj-text font-size="30px" color="#3e2636" font-weight="700" font-family="OpenSans, Arial" align="center" padding-bottom="25px">Congratulations!<br/> Welcome to the Lobby</mj-text>
+				</mj-column>
+			</mj-section>
+			<mj-section background-color="#f0f7f7" padding="0 1% 60px">
+				<mj-column>
+					<mj-text font-size="16px" color="#3e2636" font-weight="400" font-family="OpenSans, Arial" align="center" line-height="28px" css-class="basic-text">Your account is approved. We’re happy to have you on the floor!<br/>You now have access to a curated list of perfect-fit leads.</mj-text>
+          <mj-text font-size="16px" color="#3e2636" font-weight="bold" font-family="OpenSans, Arial" align="center" line-height="1px" css-class="basic-text">What’s next?</mj-text>
+          <mj-text font-size="16px" color="#3e2636" font-weight="400" font-family="OpenSans, Arial" align="center" line-height="28px" css-class="basic-text">We'll email you whenever we locate a perfect-fit deal for you.<br/> Each deal we send will contain all the information you need to make an informed decision.
+<br/>You can also head online to browse a curated list of relevant deals on the platform.</mj-text>
+			<mj-button background-color="#055d64" href="{{ $url }}">Go to Deals</mj-button>
+          <mj-text font-size="16px" color="#3e2636" font-weight="400" font-family="OpenSans, Arial" align="center" line-height="28px" css-class="basic-text">We look forward to helping you find every last perfect fit!</mj-text>
+				</mj-column>
+			</mj-section>
+		</mj-wrapper>
+        <mj-section background-color="#055d64" padding="40px">
+			<mj-column>
+                <!-- {{ asset('img/email/email_logo.png') }} -->
+				<mj-image width="145px" src="{{ asset('img/email/email_logo_footer.png') }}" alt="Finance Lobby - The CRE Financing Marketplace"></mj-image>
+                <mj-text font-size="13px" color="#ececec" font-weight="300" font-family="OpenSans, Arial" align="center" line-height="15px">&copy; Finance Lobby {{ $year }}</mj-text>
+			</mj-column>
+		</mj-section>
+	</mj-body>
+</mjml>

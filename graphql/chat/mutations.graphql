@@ -1,0 +1,8 @@
+extend type Mutation {
+    chatSendMessageLender(input: sendMessageLenderInput @spread): ChatMessageType! @inject(context: "user.id", name: "user_id") @field(resolver: "App\\GraphQL\\Mutations\\Chat\\SendMessageLender@resolve") @guard
+    chatSendMessageBroker(input: sendMessageBrokerInput @spread): ChatMessageType! @inject(context: "user.id", name: "user_id") @field(resolver: "App\\GraphQL\\Mutations\\Chat\\SendMessageBroker@resolve") @guard
+    chatSeenMsg(input: arrayOfSeenIds @spread): MessageAndStatus!
+        @inject(context: "user.id", name: "user_id")
+        @field(resolver: "App\\GraphQL\\Mutations\\Chat\\ChatSeenMsg@resolve")
+        @guard
+}

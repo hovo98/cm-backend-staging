@@ -1,0 +1,7 @@
+input LenderDealsIndividualQuotesInput {
+    deal: Int
+}
+
+input DealRequestForQuoteCreateForm {
+    id: Int
+}

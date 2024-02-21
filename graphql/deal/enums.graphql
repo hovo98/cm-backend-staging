@@ -1,0 +1,71 @@
+enum LoanType {
+    UNDEFINED @enum(value: 0)
+    PURCHASE @enum(value: 1)
+    REFINANCE @enum(value: 2)
+    CONSTRUCTION @enum(value: 3)
+}
+
+enum PropertyType {
+    UNDEFINED @enum(value: 0)
+    INVESTMENT @enum(value: 1)
+    OWNER_OCCUPIED @enum(value: 2)
+    CONSTRUCTION @enum(value: 3)
+}
+
+enum InvestmentType {
+    UNDEFINED @enum(value: 0)
+    RETAIL @enum(value: 1)
+    MULTIFAMILY @enum(value: 8)
+    OFFICE @enum(value: 2)
+    INDUSTRIAL @enum(value: 3)
+    LAND @enum(value: 7)
+    MIXEDUSE @enum(value: 4)
+}
+
+enum UserDealRelationType {
+    UNDEFINED @enum(value: 0)
+    SAVED @enum(value: 1)
+    ARCHIVED @enum(value: 2)
+    IGNORED @enum(value: 3)
+}
+
+enum ContextFiltration {
+    GENERAL @enum(value: "general")
+    IGNORED @enum(value: "ignored")
+    ARCHIVED @enum(value: "archived")
+    SAVED @enum(value: "saved")
+    DRAFT @enum(value: "draft")
+}
+
+enum FilterName {
+    GENERAL @enum(value: "general")
+    PERFECT_FIT @enum(value: "perfect_fit")
+    CLOSE_FIT @enum(value: "close_fit")
+}
+
+enum AssetType {
+    RETAIL @enum(value: 1)
+    OFFICE @enum(value: 2)
+    INDUSTRIAL @enum(value: 3)
+    MIXED_USE @enum(value: 4)
+    CONSTRUCTION @enum(value: 5)
+    OWNER_OCCUPIED @enum(value: 6)
+    LAND @enum(value: 7)
+    MULTIFAMILY @enum(value: 8)
+    GENERAL @enum(value: 0)
+}
+
+enum SortByFiltrationDeal {
+    GENERAL @enum(value: "general")
+    LOCATION @enum(value: "location")
+    LOAN_AMOUNT @enum(value: "loan_amount")
+    PROPERTY_TYPE @enum(value: "property_type")
+    LOAN_TYPE @enum(value: "loan_type")
+    DATE_POSTED @enum(value: "date_posted")
+}
+
+enum SortDirectionDeal {
+    ASC @enum(value: "asc")
+    DESC @enum(value: "desc")
+}
+

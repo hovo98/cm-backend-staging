@@ -1,0 +1,7 @@
+extend type Query {
+    dealsFilter(pagination: PaginationInput, input: DealObjectFilterInput @spread): PaginatedDealObjectType! @inject(context: "user.id", name: "user_id") @field(resolver: "App\\GraphQL\\Queries\\Deal\\FilterDeals") @guard
+}
+extend type Query {
+    dealObject(input: DealInput @spread): DealObjectWithTermsType! @inject(context: "user.id", name: "user_id") @field(resolver: "App\\GraphQL\\Mutations\\Deal\\Deal") @guard
+    getManageTable(table: String! @spread): ResponseManageTable! @inject(context: "user.id", name: "user_id") @field(resolver: "App\\GraphQL\\Queries\\Deal\\GetManageTable")  @guard
+}

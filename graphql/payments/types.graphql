@@ -1,0 +1,45 @@
+type PaymentMethodType {
+    id: Int
+    stripe_payment_id: String
+    card_type: String
+    exp_year: String
+    exp_month: String
+    last_4: String
+    default: Boolean
+}
+
+type CheckPaymentStatusType {
+    status: String
+}
+
+type BuyQuoteType {
+    stripe_id: String,
+    quote_price: Float,
+    checkout_url: String,
+}
+
+type BuyDealType {
+    stripe_id: String,
+    deal_price: Float,
+    checkout_url: String,
+}
+
+type SubscriptionType {
+    name: String
+    success: Boolean
+    status: String
+    stripe_id: String
+    ends_at: String
+    downgraded_message: String
+    next_billing_date: String
+    next_billing_amount: Float
+}
+
+type PlansType {
+    name: String
+    type: String
+    description: String
+    price: String
+    price_id: String
+    features: [String]
+}

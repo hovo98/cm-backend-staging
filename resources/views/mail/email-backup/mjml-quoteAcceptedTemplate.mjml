@@ -1,0 +1,202 @@
+<mjml>
+	<mj-head>
+		<mj-font name="OpenSans" href="https://fonts.googleapis.com/css2?family=Open+Sans" />
+		<mj-style>
+			.basic-text a {
+				color: #f7ab42 !important;
+				text-decoration: underline !important;
+			}
+
+			.basic-text-green a {
+				color: #0c8e8b !important;
+				text-decoration: underline !important;
+			}
+
+			.informations a {
+				color: #3e2636 !important;
+				text-decoration: underline !important;
+			}
+
+			.basic-text strong {
+				color: #045d63 !important;
+			}
+		</mj-style>
+	</mj-head>
+	<mj-body>
+		<mj-section background-color="#fff" padding="54px 4% 15px 4%">
+			<mj-column>
+				<mj-image width="241px" src="{{ asset('img/email/email_logo.png') }}" alt="Finance Lobby - The CRE Financing Marketplace"></mj-image>
+			</mj-column>
+		</mj-section>
+		<mj-wrapper padding="60px 4% 20px" background-color="#f0f7f7">
+			<!-- Top image -->
+			<mj-section  padding="0 1%">
+				<mj-column>
+					<mj-image width="104px" src="{{ asset('img/email/accept_quote.png') }}" alt="Icon of Accept quote"></mj-image>
+				</mj-column>
+			</mj-section>
+			<!-- Email Title -->
+			<mj-section padding="20px 1% 0">
+				<mj-column>
+					<mj-text font-size="30px" color="#3e2636" font-weight="700" font-family="OpenSans, Arial" align="center" padding-bottom="25px">It's a match!</mj-text>
+
+					<mj-text font-size="16px" color="#3e2636" font-weight="600" font-family="OpenSans, Arial" align="center" line-height="26px">The quote for $12,000.00 on the deal in {{ $deal['neighbourhood'] }}, RI was accepted!</mj-text>
+				</mj-column>
+			</mj-section>
+		</mj-wrapper>
+		<!-- Deal info -->
+		<mj-wrapper padding="40px 4% 20px" background-color="#f0f7f7">
+			<mj-section padding="20px 30px 0 5px" background-color="#fbf8f3">
+				<mj-column padding="0">
+					<mj-text font-size="16px" color="#2f3034" font-weight="700" font-family="OpenSans, Arial" align="left" padding-bottom="20px">Deal Info</mj-text>
+				</mj-column>
+			</mj-section>
+			<mj-section padding="0 30px 20px" background-color="#fbf8f3">
+				<!-- Deal Property Address -->
+				<mj-column padding="0" width="50%">
+					<mj-text font-size="14px" color="#2f3034" font-weight="400" font-family="OpenSans, Arial" align="left" line-height="18px" padding="5px 15px 2px 0">Property Address</mj-text>
+				</mj-column>
+				<mj-column padding="0" width="50%">
+					<mj-text font-size="14px" color="#2f3034" line-height="22px" font-weight="600" font-family="OpenSans, Arial" align="right" padding="2px 0">{{ $deal['address'] }}</mj-text>
+				</mj-column>
+				<!-- Deal ID -->
+				<mj-column padding="0" width="50%" border-top="1px dashed #9da0ae">
+					<mj-text font-size="14px" color="#2f3034" font-weight="400" font-family="OpenSans, Arial" align="left" line-height="18px" padding="5px 15px 2px 0">Deal ID</mj-text>
+				</mj-column>
+				<mj-column padding="0" width="50%" border-top="1px dashed #9da0ae">
+					<mj-text font-size="14px" color="#2f3034" line-height="22px" font-weight="600" font-family="OpenSans, Arial" align="right" padding="2px 0">{{ $deal['id'] }}</mj-text>
+				</mj-column>
+				<!-- Property Type -->
+				<mj-column padding="0" width="50%" border-top="1px dashed #9da0ae">
+					<mj-text font-size="14px" color="#2f3034" font-weight="400" font-family="OpenSans, Arial" align="left" line-height="18px" padding="5px 15px 2px 0">Property Type</mj-text>
+				</mj-column>
+				<mj-column padding="0" width="50%" border-top="1px dashed #9da0ae">
+					<mj-text font-size="14px" color="#2f3034" line-height="22px" font-weight="600" font-family="OpenSans, Arial" align="right" padding="2px 0">{{ $deal['main_type'] }}</mj-text>
+				</mj-column>
+				<!-- Sponsor Name -->
+				<mj-column padding="0" width="50%" border-top="1px dashed #9da0ae">
+					<mj-text font-size="14px" color="#2f3034" font-weight="400" font-family="OpenSans, Arial" align="left" line-height="18px" padding="5px 15px 2px 0">Sponsor Name</mj-text>
+				</mj-column>
+				<mj-column padding="0" width="50%" border-top="1px dashed #9da0ae">
+					<mj-text font-size="14px" color="#2f3034" line-height="22px" font-weight="600" font-family="OpenSans, Arial" align="right" padding="2px 0">{{ $deal['sponsor_name'] }}</mj-text>
+				</mj-column>
+				<!-- Asset Type -->
+				<mj-column padding="0" width="50%" border-top="1px dashed #9da0ae">
+					<mj-text font-size="14px" color="#2f3034" font-weight="400" font-family="OpenSans, Arial" align="left" line-height="18px" padding="5px 15px 2px 0">Asset Type</mj-text>
+				</mj-column>
+				<mj-column padding="0" width="50%" border-top="1px dashed #9da0ae">
+					<mj-text font-size="14px" color="#2f3034" line-height="22px" font-weight="600" font-family="OpenSans, Arial" align="right" padding="2px 0">{{ $deal['loan_type'] }}</mj-text>
+				</mj-column>
+			</mj-section>
+
+			<!-- View Deal -->
+			<mj-section padding="40px 1% 20px">
+				<mj-column>
+					<mj-text font-size="16px" color="#2f3034" font-weight="700" font-family="OpenSans, Arial" align="center" padding-bottom="20px" css-class="basic-text-green"><a href="{{ $dealUrl }}">View Full Deal Information</a>
+				</mj-column>
+			</mj-section>
+		</mj-wrapper>
+
+		<!-- Quote info -->
+		<mj-wrapper padding="40px 4% 20px" background-color="#f0f7f7">
+			<mj-section padding="20px 30px 0 5px" background-color="#fff">
+				<mj-column padding="0">
+					<mj-text font-size="16px" color="#2f3034" font-weight="700" font-family="OpenSans, Arial" align="left" padding-bottom="20px">Quote Info</mj-text>
+				</mj-column>
+			</mj-section>
+			<mj-section padding="0 30px 20px" background-color="#fff">
+				<!-- Quote Dollar Amount -->
+				<mj-column padding="0" width="50%">
+					<mj-text font-size="14px" color="#2f3034" font-weight="400" font-family="OpenSans, Arial" align="left" line-height="18px" padding="5px 15px 2px 0">Dollar Amount</mj-text>
+				</mj-column>
+				<mj-column padding="0" width="50%">
+					<mj-text font-size="14px" color="#2f3034" line-height="22px" font-weight="600" font-family="OpenSans, Arial" align="right" padding="2px 0">$16.5M</mj-text>
+				</mj-column>
+				<!-- Interest rate fixed or spread and yield -->
+				<mj-column padding="0" width="60%" border-top="1px dashed #9da0ae">
+					<mj-text font-size="14px" color="#2f3034" font-weight="400" font-family="OpenSans, Arial" align="left" line-height="18px" padding="5px 15px 2px 0">Interest rate fixed or spread and yield</mj-text>
+				</mj-column>
+				<mj-column padding="0" width="40%" border-top="1px dashed #9da0ae">
+					<mj-text font-size="14px" color="#2f3034" line-height="22px" font-weight="600" font-family="OpenSans, Arial" align="right" padding="2px 0">16K</mj-text>
+				</mj-column>
+				<!-- Rate term -->
+				<mj-column padding="0" width="50%" border-top="1px dashed #9da0ae">
+					<mj-text font-size="14px" color="#2f3034" font-weight="400" font-family="OpenSans, Arial" align="left" line-height="18px" padding="5px 15px 2px 0">Rate term</mj-text>
+				</mj-column>
+				<mj-column padding="0" width="50%" border-top="1px dashed #9da0ae">
+					<mj-text font-size="14px" color="#2f3034" line-height="22px" font-weight="600" font-family="OpenSans, Arial" align="right" padding="2px 0">16K</mj-text>
+				</mj-column>
+				<!-- Loan Term -->
+				<mj-column padding="0" width="50%" border-top="1px dashed #9da0ae">
+					<mj-text font-size="14px" color="#2f3034" font-weight="400" font-family="OpenSans, Arial" align="left" line-height="18px" padding="5px 15px 2px 0">Loan Term</mj-text>
+				</mj-column>
+				<mj-column padding="0" width="50%" border-top="1px dashed #9da0ae">
+					<mj-text font-size="14px" color="#2f3034" line-height="22px" font-weight="600" font-family="OpenSans, Arial" align="right" padding="2px 0">16K</mj-text>
+				</mj-column>
+				<!-- Interest only or amortization years -->
+				<mj-column padding="0" width="50%" border-top="1px dashed #9da0ae">
+					<mj-text font-size="14px" color="#2f3034" font-weight="400" font-family="OpenSans, Arial" align="left" line-height="18px" padding="5px 15px 2px 0">Interest only or amortization years</mj-text>
+				</mj-column>
+				<mj-column padding="0" width="50%" border-top="1px dashed #9da0ae">
+					<mj-text font-size="14px" color="#2f3034" line-height="22px" font-weight="600" font-family="OpenSans, Arial" align="right" padding="2px 0">16K</mj-text>
+				</mj-column>
+			</mj-section>
+		</mj-wrapper>
+
+		<!-- Lender/Broker Informations -->
+		<mj-wrapper padding="40px 4% 20px" background-color="#f0f7f7">
+			<mj-section padding="20px">
+				<mj-column background-color="#fff" width="48%">
+					<mj-text font-size="14px" color="#055d64" font-weight="700" font-family="OpenSans, Arial" align="center" background-color="#fff" padding="20px 10px">Lender Information</mj-text>
+					<mj-divider border-width="1px" border-style="solid" border-color="#f0f7f7" padding="0" />
+					<mj-text font-size="14px" color="#3e2636" font-weight="400" line-height="24px" font-family="OpenSans, Arial" align="center" background-color="#fff" padding="20px 10px" css-class="informations">
+						{{ $lenderName }} </br>
+						<a href="mailto:{{ $lenderEmail }}">{{ $lenderEmail }}</a> </br>
+						<mj-raw>@if($lenderPhone)</mj-raw>
+							<a href="tel:{{ $lenderPhone }}">{{ $lenderPhone }}</a>
+          				<mj-raw>@endif</mj-raw>
+					</mj-text>
+				</mj-column>
+				<mj-column width="4%">
+				</mj-column>
+				<mj-column background-color="#fff" width="48%">
+					<mj-text font-size="14px" color="#055d64" font-weight="700" font-family="OpenSans, Arial" align="center" background-color="#fff" padding="20px 10px">Broker Information</mj-text>
+					<mj-divider border-width="1px" border-style="solid" border-color="#f0f7f7" padding="0" />
+					<mj-text font-size="14px" color="#3e2636" font-weight="400" line-height="24px" font-family="OpenSans, Arial" align="center" background-color="#fff" padding="20px 10px" css-class="informations">
+						{{ $brokerName }} </br>
+						<a href="mailto:{{ $brokerEmail }}">{{ $brokerEmail }}</a> </br>
+						<mj-raw>@if($brokerPhone)</mj-raw>
+							<a href="tel:{{ $brokerPhone }}">{{ $brokerPhone }}</a>
+          				<mj-raw>@endif</mj-raw>
+					</mj-text>
+				</mj-column>
+			</mj-section>
+		</mj-wrapper>
+
+		<!-- Reply to email -->
+
+		<mj-wrapper padding="40px 10% 20px" background-color="#f0f7f7">
+			<mj-section padding="0">
+				<mj-column>
+					<mj-text font-size="20px" line-height="34px" color="#2f3034" font-weight="700" font-family="Montserrat, Arial" align="center" padding-bottom="20px">Reply to this email to take this quote to the finish line!</mj-text>
+				</mj-column>
+			</mj-section>
+			<mj-section padding="10px 0">
+				<mj-column>
+					<mj-button background-color="#055d64" height="34px" href="">Reply to Email</mj-button>
+				</mj-column>
+			</mj-section>
+		</mj-wrapper>
+
+
+
+
+		<!-- REST OF CODE -->
+        <mj-section background-color="#055d64" padding="40px">
+			<mj-column>
+				<mj-image width="145px" src="{{ asset('img/email/email_logo_footer.png') }}" alt="Finance Lobby - The CRE Financing Marketplace"></mj-image>
+                <mj-text font-size="13px" color="#ececec" font-weight="300" font-family="OpenSans, Arial" align="center" line-height="15px">&copy; FinanceLobby {{ $year }}</mj-text>
+			</mj-column>
+		</mj-section>
+	</mj-body>
+</mjml>

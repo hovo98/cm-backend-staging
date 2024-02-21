@@ -1,0 +1,6 @@
+extend type Query {
+    paymentMethods: [PaymentMethodType!] @inject(context: "user.id", name: "user_id") @field(resolver: "App\\GraphQL\\Queries\\User\\Payments\\PaymentMethods@resolve") @guard
+    plans: [PlansType!] @inject(context: "user.id", name: "user_id") @field(resolver: "App\\GraphQL\\Queries\\User\\Payments\\Plans@resolve") @guard
+    plan: SubscriptionType! @inject(context: "user.id", name: "user_id") @field(resolver: "App\\GraphQL\\Queries\\User\\Payments\\UserPlan@resolve") @guard
+    checkPaymentStatus(input: CheckPaymentStatus @spread): CheckPaymentStatusType @inject(context: "user.id", name: "user_id") @field(resolver: "App\\GraphQL\\Queries\\User\\Payments\\CheckPaymentStatus@resolve") @guard
+}

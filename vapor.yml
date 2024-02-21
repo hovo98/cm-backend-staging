@@ -1,0 +1,75 @@
+id: 40991
+name: backend-api
+environments:
+    production:
+      memory: 1024
+      queue-memory: 1024
+      cli-memory: 512
+      warm: 10
+      timeout: 40
+      queue-database-session-persist: true
+      queue-timeout: 600
+      queues:
+        - default-production: 30
+        - emails-production: 3
+        - processing-production: 4
+      runtime: docker
+      cache: redis-6-cluster
+      database: Postgres-13
+      domain:
+        - api.financelobby.com
+        - admin.financelobby.com
+      storage: financelobby-production
+      build:
+        - 'COMPOSER_MIRROR_PATH_REPOS=1 composer install --no-dev'
+        - 'php artisan event:cache'
+      deploy:
+        - 'php artisan cache:clear'
+        - 'php artisan migrate --force'
+    staging:
+        memory: 1024
+        queue-memory: 1024
+        cli-memory: 512
+        warm: 10
+        timeout: 40
+        queue-database-session-persist: true
+        queue-timeout: 600
+        queues:
+            - default-staging: 30
+            - emails-staging: 3
+            - processing-staging: 4
+        runtime: docker
+        cache: redis-6-cluster
+        database: Postgres-13
+        domain: staging-api.financelobby.com
+        storage: financelobby-staging
+        build:
+            - 'COMPOSER_MIRROR_PATH_REPOS=1 composer install --no-dev'
+            - 'php artisan event:cache'
+        deploy:
+            - 'php artisan cache:clear'
+            - 'php artisan migrate --force'
+    demo:
+      memory: 1024
+      queue-memory: 1024
+      cli-memory: 512
+      warm: 10
+      timeout: 40
+      queue-database-session-persist: true
+      queue-timeout: 600
+      queues:
+        - default-demo: 30
+        - emails-demo: 3
+        - processing-demo: 4
+      runtime: docker
+      cache: redis-6-cluster
+      database: Postgres-13
+      domain:
+        - demo-api.financelobby.com
+      storage: financelobby-demo
+      build:
+        - 'COMPOSER_MIRROR_PATH_REPOS=1 composer install --no-dev'
+        - 'php artisan event:cache'
+      deploy:
+        - 'php artisan cache:clear'
+        - 'php artisan migrate --force'

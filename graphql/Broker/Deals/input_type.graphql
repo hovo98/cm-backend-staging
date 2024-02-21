@@ -1,0 +1,8 @@
+input BrokerDealsIndividualInput {
+    deal: Int
+}
+
+input BrokerDealsSetTermsheet {
+    deal: Int,
+    term: Int
+}

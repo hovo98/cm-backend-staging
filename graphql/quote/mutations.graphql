@@ -1,0 +1,26 @@
+extend type Mutation {
+  quoteStepStatus(input: QuoteStepStatusInput @spread): QuoteStepStatusType!
+    @inject(context: "user.id", name: "user_id")
+    @field(resolver: "App\\GraphQL\\Mutations\\Quote\\StoreQuoteStepStatus")
+    @guard
+  quote(input: QuoteObjectInput @spread): QuoteObjectType!
+    @inject(context: "user.id", name: "user_id")
+    @field(resolver: "App\\GraphQL\\Mutations\\Quote\\StoreQuote")
+    @guard @can(ability: "isBetaUser", model: "App\\User")
+  setQuoteStatus(input: QuoteSetStatusInput @spread): QuoteSetStatusType!
+    @inject(context: "user.id", name: "user_id")
+    @field(resolver: "App\\GraphQL\\Mutations\\Quote\\SetQuoteStatus@resolve")
+    @guard @can(ability: "isBroker", model: "App\\User")
+  activeQuote(token: String! @spread): ActiveQuoteType!
+    @inject(context: "user.id", name: "user_id")
+    @field(resolver: "App\\GraphQL\\Mutations\\Quote\\ActiveQuote@resolve")
+    @guard @can(ability: "isLender", model: "App\\User")
+  chooseQuote(token: String! @spread): ActiveQuoteType!
+    @inject(context: "user.id", name: "user_id")
+    @field(resolver: "App\\GraphQL\\Mutations\\Quote\\ChooseQuote@resolve")
+    @guard @can(ability: "isBroker", model: "App\\User")
+  quoteErrorMessage(input: QuoteErrorMessageInput @spread): QuoteErrorMessageType!
+    @inject(context: "user.id", name: "user_id")
+    @field(resolver: "App\\GraphQL\\Mutations\\Quote\\QuoteErrorMessage")
+    @guard @can(ability: "isBetaUser", model: "App\\User")
+}

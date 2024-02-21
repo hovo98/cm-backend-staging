@@ -1,0 +1,24 @@
+type LenderDealsIndividualQuoteType {
+    id: String,
+    dollarAmount: String,
+    interestRate: String,
+    rateTerm: String,
+    origFee: String,
+    company: String
+    status: QuoteStatus
+}
+
+type LenderDealsIndividualQuotesType {
+    quotes: [LenderDealsIndividualQuoteType],
+    quoteLink: String
+}
+
+
+type DealForQuoteCreateForm {
+    property_type: String,
+    loan_type: String,
+    loan_amount: String,
+    land_cost: String,
+    hard_cost: String,
+    soft_cost: String
+}

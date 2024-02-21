@@ -1,0 +1,194 @@
+
+type QuoteRequestedLoanType {
+    dollarAmount: Int,
+    loanValue: String,
+    loanCost: String
+}
+
+type QuoteCostType {
+    costAmount: Int,
+    costPercent: String
+}
+
+type QuoteInterestRateTypeObj {
+    fixedRateAmount: String,
+    yieldText: String,
+    spread: String,
+    floor_rate: String,
+    yield_second: String,
+    spread_second: String,
+    floor_rate_second: String,
+    swap_value: String
+}
+
+type QuoteExtensionOptionType {
+    duration: String,
+    feeAmount: Int,
+    feePercentage: String,
+    allowed: Int
+}
+
+type QuoteFeeType {
+    feePercent: String,
+    feeAmount: Int
+}
+
+type QuoteExitFeePercentType {
+    fee: QuoteFeeType
+    comment: String
+}
+
+type QuoteConstructionLoansType {
+    requestedLoan: QuoteRequestedLoanType,
+    landCosts: QuoteCostType,
+    softCosts: QuoteCostType,
+    hardCosts: QuoteCostType,
+    lendTowardsCosts: QuoteCostType,
+    interestRateType: QuoteInterestRateType,
+    interestRate: QuoteInterestRateTypeObj,
+    constructionTerm: String,
+    extensionOptionType: QuoteDecisionOptionType,
+    extensionOption: QuoteExtensionOptionType,
+    recourseOptionType: QuoteDecisionOptionType,
+    recourseType: [QuoteRecourseTypeType],
+    recourseNote: String,
+    collectingFeeType: QuoteDecisionOptionType,
+    collectingFee: QuoteFeeType,
+    exitFeeType: QuoteDecisionOptionType,
+    exitFee: QuoteExitFeePercentType,
+    permanentLoanOptionType: QuoteDecisionOptionType
+}
+
+type OfferAmountQuoteType {
+    amount: Int,
+    loanToValueRatio: String,
+    loanToCostRatio: String
+}
+
+type InterestRateType {
+    amount: Int,
+    loanToValueRatio: String,
+    loanToCostRatio: String
+}
+
+type QuotePurchaseAndRefinanceLoansType {
+    offer: OfferAmountQuoteType,
+    amountOfYears: Int,
+    amountOfYearsReset: QuoteDecisionOptionType,
+    interestRateType: QuoteInterestRateType,
+    interestRate: QuoteInterestRateTypeObj,
+    interestPeriodType: QuoteDecisionOptionType
+    interestPeriod: String,
+    amortizationPeriod: String,
+    recourseType:  QuoteDecisionOptionType,
+    recourseOptions: [QuoteRecourseTypePurchaseType],
+    recourseNote: String,
+    collectingOriginationFeeType: QuoteDecisionOptionType,
+    collectingOrigination: QuoteCostType,
+    prePaymentYears: String,
+    prePaymentCustomYear: [String]
+
+}
+
+type QuoteErrorMessageType {
+    status: Boolean
+}
+
+type QuoteObjectType {
+    id: Int,
+    dealID: Int,
+    message: String,
+    seen: Boolean,
+    lastStepStatus: String,
+    constructionLoans: QuoteConstructionLoansType,
+    purchaseAndRefinanceLoans: QuotePurchaseAndRefinanceLoansType,
+    lenderID: Int,
+    lenderFirstName: String,
+    lenderLastName: String,
+    lenderPhone: String,
+    lenderEmail: String,
+    lenderProfileImage: String,
+    lenderBiography: String,
+    lenderSpecialty: String,
+    lenderLinkedin_url: String,
+    status: QuoteStatus
+}
+
+type PaginatedQuoteObjectType {
+    data: [QuoteObjectType]
+    paginatorInfo: paginatorInfo
+}
+
+type QuoteLender {
+    id: Int,
+    firstName: String,
+    lastName: String,
+    phone: String,
+    email: String,
+    profileImage: String,
+    biography: String,
+    specialty: String,
+    company: String
+}
+
+type QuoteLenderCompany {
+    id: Int,
+    company: String,
+    profile_img: String,
+}
+
+type QuotesByDeal {
+    lender: QuoteLender,
+    quotes: [QuoteObjectType]
+}
+
+type QuoteObjectBrokerType {
+    id: Int,
+    dealID: Int,
+    message: String,
+    seen: Boolean,
+    lastStepStatus: String,
+    constructionLoans: QuoteConstructionLoansType,
+    purchaseAndRefinanceLoans: QuotePurchaseAndRefinanceLoansType,
+    lenderID: Int,
+    lenderFirstName: String,
+    lenderLastName: String,
+    lenderPhone: String,
+    lenderEmail: String,
+    lenderProfileImage: String,
+    lenderBiography: String,
+    lenderSpecialty: String,
+    lenderLinkedin_url: String,
+    status: QuoteStatus
+    olderThanTwoWeeks: Boolean
+    button: Boolean
+    secondAccept: Boolean
+}
+
+type BrokerQuotesByDeal {
+    data: [QuotesByDeal]
+}
+
+type QuoteStepStatusType {
+    id: Int,
+    lastStepStatus: String
+}
+
+type QuoteSetStatusType {
+    status: Boolean
+    deal_termsheet_status: Boolean
+    quotes: [SingleQuote]
+    message: String
+    anyQuoteAccepted: Boolean
+}
+
+type SingleQuote{
+    id: Int
+    status: QuoteStatus
+    button: Boolean
+}
+
+type ActiveQuoteType {
+    status: Boolean
+    message: String
+}

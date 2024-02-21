@@ -1,0 +1,10 @@
+type paginatorInfo{
+    count: Int
+    currentPage: Int
+    firstItem: Int
+    hasMorePages: Boolean
+    lastItem: Int
+    lastPage: Int
+    perPage: Int
+    total: Int
+}

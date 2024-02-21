@@ -1,0 +1,28 @@
+type Lender {
+    id: ID
+    role: String
+    first_name: String
+    last_name: String
+    email: String
+    email_verified_at: DateTime
+    password: String
+    phone: String
+    profile_image: String
+    subscription: String
+    status: String
+    company: Company @belongsTo
+    brokers: [Broker] @hasMany
+    created_at: DateTime
+    updated_at: DateTime
+    timezone: String
+}
+
+extend type Query {
+    lender(id: ID @eq): Lender @find @guard
+    getProfileInfoLender: ProfileInfoLenderResponse @field(resolver: "App\\GraphQL\\Queries\\User\\ProfileInfoLender@resolve") @guard
+}
+
+extend type Mutation {
+    setProfileInfoLender(input:ProfileInfoLender @spread): ProfileInfoLenderResponse @field(resolver: "App\\GraphQL\\Mutations\\User\\SetProfileInfoLender@resolve")@guard
+}
+

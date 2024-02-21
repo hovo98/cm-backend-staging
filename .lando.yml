@@ -1,0 +1,62 @@
+name: commercial-mortgage
+recipe: laravel
+config:
+  webroot: public
+  php: '8.1'
+  xdebug: true
+  database: postgres:12
+
+proxy:
+  appserver:
+    - cm.lndo.site
+  adminer:
+    - db-cm.lndo.site
+
+services:
+  appserver:
+    config:
+      php: .lando/php.ini
+    build:
+      - composer install
+    build_as_root:
+      - apt-get update -y
+      - apt-get install cron supervisor -y
+      - cp -f /app/resources/config/laravel-worker.conf /etc/supervisor/conf.d/
+      - cp -f /app/.lando/docker-php-entrypoint.sh /usr/local/bin/docker-php-entrypoint
+    run:
+      - crontab /app/resources/config/cron.txt
+    overrides:
+      depends_on:
+        - database
+      environment:
+        PHP_IDE_CONFIG: "serverName=PHPSTORM"
+
+  mailhog:
+    type: mailhog
+    portforward: false
+    hogfrom:
+      - appserver
+
+  adminer:
+    type: compose
+    services:
+      image: dehy/adminer
+      command: /bin/s6-svscan /etc/services.d
+    portforward: true
+
+tooling:
+  restart-workers:
+    service: appserver
+    description: Restarts queue workers after Jobs are updated
+    user: root
+    cmd:
+      - supervisorctl restart all
+  clear:
+    service: appserver
+    description: Clears all caches in Laravel
+    cmd:
+      - composer dump-autoload
+      - php artisan cache:clear
+      - php artisan config:clear
+      - php artisan view:clear
+      - php artisan route:clear

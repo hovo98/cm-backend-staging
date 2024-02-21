@@ -1,0 +1,17 @@
+extend type Query {
+    contactForm(input: ContactFormInput @spread): ContactFormResponse! @field(resolver: "App\\GraphQL\\Queries\\ContactForm@resolve") @can(ability: "validRecaptcha", model: "App\\User")
+}
+
+input ContactFormInput {
+    firstName: String! @rules(apply: ["required"])
+    lastName: String! @rules(apply: ["required"])
+    email: String! @rules(apply: ["required", "email"])
+    subject: String! @rules(apply: ["required"])
+    message: String! @rules(apply: ["required"])
+    recaptcha: String! @rules(apply: ["required"])
+}
+
+type ContactFormResponse {
+    message: String
+    success: Boolean
+}

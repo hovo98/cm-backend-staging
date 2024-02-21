@@ -1,0 +1,18 @@
+type IndividualDealQuotesType {
+    id: String,
+    dollarAmount: String,
+    interestRate: String,
+    rateTerm: String,
+    origFee: String,
+    status: QuoteStatus
+}
+
+type BrokerDealsIndividualType {
+    lender: QuoteLender,
+    quotes: [IndividualDealQuotesType]
+}
+
+type PaginatedBrokerDealsIndividualType {
+    data: [BrokerAllQuotes]
+    paginatorInfo: paginatorInfo
+}

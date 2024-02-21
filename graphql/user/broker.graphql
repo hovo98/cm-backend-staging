@@ -1,0 +1,49 @@
+type Broker {
+    id: ID
+    role: String
+    first_name: String
+    last_name: String
+    email: String
+    email_verified_at: DateTime
+    password: String
+    phone: String
+    profile_image: String
+    subscription: String
+    status: String
+    company: Company @belongsTo
+    deals: [DealObjectType] @hasMany(relation:"deals" type:"paginator")
+    lenders: [Lender] @hasMany
+    lender_emails: [BrokerLenderEmail] @hasMany(relation:"lenderEmails")
+    created_at: DateTime
+    updated_at: DateTime
+    timezone: String
+}
+
+extend type Query {
+    broker(id: ID @eq): Broker @find @guard
+    profileInfoBroker: ProfileInfoBrokerResponse @field(resolver: "App\\GraphQL\\Queries\\User\\ProfileInfoBroker@resolve") @guard
+}
+
+extend type Mutation {
+    addLender(input: AddLenderInput @spread): [ErrorsResponse]! @inject(context: "user.id" name: "user_id") @field(resolver: "App\\GraphQL\\Mutations\\User\\AddLender@resolve") @guard
+    removeLender(lender_email: String! @toLowerCase): ManageLenderResponse! @inject(context: "user.id" name: "user_id") @field(resolver: "App\\GraphQL\\Mutations\\User\\RemoveLender@resolve") @guard
+}
+
+type ManageLenderResponse {
+    success: Boolean!
+    message: String!
+}
+
+type ErrorsResponse {
+    email: String
+    message: String
+}
+
+input AddLenderInput{
+    emails: [String!] @toLowerCase
+}
+
+type BrokerLenderEmail {
+    lender_email: String
+}
+

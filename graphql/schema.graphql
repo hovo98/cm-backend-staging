@@ -1,0 +1,40 @@
+"A datetime string with format `Y-m-d H:i:s`, e.g. `2018-01-01 13:00:00`."
+scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
+
+"A date string with format `Y-m-d`, e.g. `2011-05-23`."
+scalar Date @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date")
+
+"Can be used as an argument to upload files using https://github.com/jaydenseric/graphql-multipart-request-spec"
+scalar Upload @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Upload")
+
+type Query
+
+type Mutation
+
+
+#import Broker/Quotes/*.graphql
+#import Broker/Deals/*.graphql
+#import Lender/Quotes/*.graphql
+#import Lender/Deals/*.graphql
+
+#import chat/*.graphql
+#import user/*.graphql
+#import deal/*.graphql
+#import sponsor/*.graphql
+#import quote/*.graphql
+#import form/*.graphql
+#import company/*.graphql
+#import config/*.graphql
+#import global/*.graphql
+#import payments/*.graphql
+
+
+
+
+enum Trashed {
+    ONLY @enum(value: "only")
+    WITH @enum(value: "with")
+    WITHOUT @enum(value: "without")
+}
+
+

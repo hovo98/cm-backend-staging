@@ -1,0 +1,56 @@
+type User {
+    id: ID
+    role: String
+    first_name: String
+    last_name: String
+    email: String
+    email_verified_at: DateTime
+    password: String
+    phone: String
+    subscription: String
+    plan: SubscriptionType
+    status: String
+    profile_image: String
+    company_id: Int
+    created_at: DateTime
+    updated_at: DateTime
+    timezone: String
+    chat_response_time: Float
+    profile_image: String
+    company: Company @belongsTo
+}
+
+extend type Query {
+    checkEmail(email: String! @toLowerCase): CheckEmailResponse! @field(resolver: "App\\GraphQL\\Queries\\User\\CheckEmail")
+    getFit(type: FitType!): GetFitResponse @field(resolver: "App\\GraphQL\\Queries\\User\\GetFit@resolve") @guard
+    getCompany: CompanyDataResponse @field(resolver: "App\\GraphQL\\Queries\\User\\GetCompany@resolve") @guard
+    getProfileImage: ProfileImageResponse @field(resolver: "App\\GraphQL\\Queries\\User\\GetProfileImage@resolve") @guard
+    getVerificationMail: VerificationMailResponse @field(resolver: "App\\GraphQL\\Queries\\User\\GetVerificationMail@resolve") @guard
+    getVerificationMailByEmail(email: String! @toLowerCase): VerificationMailResponse @field(resolver: "App\\GraphQL\\Queries\\User\\GetVerificationMailByEmail@resolve")
+    getCompanyLogo: CompanyLogoResponse @field(resolver: "App\\GraphQL\\Queries\\Company\\GetCompanyLogo@resolve") @guard
+    invitationEmail(input: InvitationInput): InvitationResponse! @field(resolver: "App\\GraphQL\\Queries\\User\\InvitationEmailResolver@resolve") @guard
+}
+
+extend type Mutation {
+    login(input: LoginInput @spread): AuthPayload! @field(resolver: "App\\GraphQL\\Mutations\\User\\LoginUser@resolve") @can(ability:"isVerified", model: "App\\User")
+    sparkLogin(input: SparkLoginInput @spread): SparkType! @field(resolver: "App\\GraphQL\\Mutations\\User\\SparkLogin@resolve")@guard
+    refreshToken(input: RefreshTokenInput @spread): RefreshTokenPayload! @field(resolver: "App\\GraphQL\\Mutations\\User\\RefreshToken@resolve")
+    logout: LogoutResponse! @field(resolver: "Joselfonseca\\LighthouseGraphQLPassport\\GraphQL\\Mutations\\Logout@resolve") @guard
+    forgotPassword(input: ForgotPasswordInput! @spread): ForgotPasswordResponse! @field(resolver: "Joselfonseca\\LighthouseGraphQLPassport\\GraphQL\\Mutations\\ForgotPassword@resolve") @can(ability: "validRecaptcha", model: "App\\User")
+    updateForgottenPassword(input: NewPasswordWithCodeInput @spread): ForgotPasswordResponse! @field(resolver: "App\\GraphQL\\Mutations\\User\\ResetPassword@resolve") @can(ability: "validRecaptcha", model: "App\\User")
+    register(input: RegisterInput @spread): RegisterResponse! @field(resolver: "App\\GraphQL\\Mutations\\User\\RegisterUser@resolve") @can(ability: "validRecaptcha", model: "App\\User")
+    update(input: UpdateInput @spread): UpdateResponse! @inject(context: "user.id" name: "user_id") @field(resolver: "App\\GraphQL\\Mutations\\User\\UpdateInput@resolve") @guard
+    verifyEmail(input: VerifyEmailInput! @spread): AuthPayload! @field(resolver: "App\\GraphQL\\Mutations\\User\\VerifyEmail@resolve") @can(ability: "validRecaptcha", model: "App\\User")
+    updatePassword(input: UpdatePassword! @spread): UpdatePasswordResponse! @field(resolver: "Joselfonseca\\LighthouseGraphQLPassport\\GraphQL\\Mutations\\UpdatePassword@resolve") @guard
+    createFit(input: CreateFitInput! @spread): UpdateFitResponse! @field(resolver: "App\\GraphQL\\Mutations\\User\\UpdateFit@create") @can(ability: "validRecaptcha", model: "App\\User")
+    updateFit(input: UpdateFitInput! @spread): UpdateFitResponse! @field(resolver: "App\\GraphQL\\Mutations\\User\\UpdateFit@resolve") @guard
+    updateCompany(input: UpdateCompanyInput! @spread): UpdateCompanyResponse! @field(resolver: "App\\GraphQL\\Mutations\\Company\\UpdateCompany@resolve") @guard
+    updateProfileImage(profile_image: Upload): UpdateResponseProfileImg! @field(resolver: "App\\GraphQL\\Mutations\\User\\UpdateProfileImage@resolve") @guard
+    deleteProfileImage: UpdateResponse! @field(resolver: "App\\GraphQL\\Mutations\\User\\UpdateProfileImage@delete") @guard
+    updateCompanyLogo(company_logo: Upload): UpdateResponseCompanyLogo! @field(resolver: "App\\GraphQL\\Mutations\\Company\\UpdateCompanyLogo@resolve") @guard
+    deleteCompanyLogo: UpdateCompanyResponse! @field(resolver: "App\\GraphQL\\Mutations\\Company\\UpdateCompanyLogo@delete") @guard
+    updateTypeOfLoans(input: TypeOfLoansInput! @spread): UpdateFitResponse! @field(resolver: "App\\GraphQL\\Mutations\\User\\UpdateTypeOfLoans@resolve") @guard
+}
+
+
+

@@ -1,0 +1,39 @@
+type BrokerQuotesIndividualType {
+    lender: QuoteLenderCompany,
+    quotes: [QuoteObjectBrokerType]
+}
+
+type BrokerAllQuotesDeal{
+    id: Int
+    address: DealLocationType
+    property_type: [AssetType]
+    deal_type: AssetType
+}
+type BrokerAllQuotes {
+    quote_id: Int,
+    lender_id: Int,
+    dollarAmount: String
+    deal: BrokerAllQuotesDeal
+    interestRate: String
+    rateTerm: String
+    origFee: String
+}
+
+type PaginatedBrokerAllQuotes {
+    data: [BrokerAllQuotes]
+    paginatorInfo: paginatorInfo
+    sponsorNames: [String]
+    tags: FilterTagsQuote
+}
+
+type FilterTagsQuote {
+    searchLocation: String,
+    sponsorNames: [String],
+    sponsorName: String,
+    sortBy: SortQuotesTags
+}
+
+type SortQuotesTags {
+    sort: SortByFiltrationQuote
+    by: SortDirectionQuote
+}

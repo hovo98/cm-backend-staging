@@ -1,0 +1,42 @@
+type GetChatLender {
+    name: String
+    chat_response_time: Float,
+    room_id: Float
+    messages: [ChatMessages]
+}
+
+type GetChatBroker {
+    name: String
+    rooms: [RoomsBroker]
+}
+
+type GetChatVideoCall {
+    start_url: String
+    join_url: String
+}
+
+type RoomsBroker {
+    name: String
+    room_id: Float
+    chat_response_time: Float,
+    messages: [ChatMessages]
+}
+
+type ChatMessages {
+    id: Int
+    role: String
+    time: String
+    message: String
+    seen: Boolean
+    forbidden_msg: Boolean
+}
+
+type ChatMessageType {
+    room_id: Float
+    chat: ChatMessages
+}
+
+type MessageAndStatus {
+    status: Boolean
+    message: String
+}

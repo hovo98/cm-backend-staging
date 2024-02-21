@@ -1,0 +1,90 @@
+<mjml>
+  <mj-head>
+    <mj-font name="OpenSans" href="https://fonts.googleapis.com/css2?family=Open+Sans" />
+    <mj-style>
+      .basic-text a {
+      color: #f7ab42 !important;
+      text-decoration: underline !important;
+      }
+
+      .basic-text strong {
+      color: #045d63 !important;
+      }
+    </mj-style>
+  </mj-head>
+  <mj-body>
+    <mj-section background-color="#fff" padding="54px 4% 15px 4%">
+      <mj-column>
+        <mj-image width="241px" src="{{ asset('img/email/email_logo.png') }}" alt="Finance Lobby - The CRE Financing Marketplace"></mj-image>
+      </mj-column>
+    </mj-section>
+    <mj-wrapper padding="40px 4% 20px" background-color="#fff">
+      <mj-section background-color="#f0f7f7" padding="55px 1% 0">
+        <mj-column>
+          <mj-text font-size="30px" color="#3e2636" font-weight="700" font-family="OpenSans, Arial" align="center" padding-bottom="25px">Hi {{$user->first_name}},</mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-section background-color="#f0f7f7" padding="0 1%">
+        <mj-column>
+          <?php if($role === 'broker'): ?>
+          <mj-text font-size="16px" color="#3e2636" font-weight="400" font-family="OpenSans, Arial" align="center" line-height="28px" css-class="basic-text">{{$companyName}} replied to your message regarding<br/> the deal below:</mj-text>
+          <?php else: ?>
+          <mj-text font-size="16px" color="#3e2636" font-weight="400" font-family="OpenSans, Arial" align="center" line-height="28px" css-class="basic-text">A lender sent you a message regarding the deal below:</mj-text>
+          <?php endif; ?>
+        </mj-column>
+      </mj-section>
+
+      <mj-section background-color="#f0f7f7" padding="40px 4% 20px" background-color="#f0f7f7">
+        <mj-column background-color="#fff">
+          <mj-table>
+            <tr style="border-bottom: 1px solid #f0f7f7; text-align: left;">
+              <th style="padding: 10px 15px; border-right: 1px solid #f0f7f7; font-weight: 200;">LOCATION</th>
+              <td style="padding: 10px 15px; font-weight: bold;">{{$location}}</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #f0f7f7; text-align: left;">
+              <th style="padding: 10px 15px; border-right: 1px solid #f0f7f7; font-weight: 200;">LOAN AMOUNT REQUESTED</th>
+              <td style="padding: 10px 15px; font-weight: bold;">{{$amount}}</td>
+            </tr>
+            <tr style="text-align: left;">
+              <th style="padding: 10px 15px; border-right: 1px solid #f0f7f7; font-weight: 200;">TYPE</th>
+              <td style="padding: 10px 15px; font-weight: bold;">{{$type}}</td>
+            </tr>
+          </mj-table>
+        </mj-column>
+      </mj-section>
+
+      <mj-section background-color="#f0f7f7" padding="40px 4% 0" background-color="#f0f7f7">
+        <mj-column>
+          <mj-text font-size="16px" color="#3e2636" font-weight="600" font-family="OpenSans, Arial" align="center" line-height="28px" css-class="basic-text">Message:</mj-text>
+        </mj-column>
+      </mj-section>
+
+      <mj-section background-color="#f0f7f7" padding="0 4% 20px" background-color="#f0f7f7">
+        <mj-column background-color="#fff">
+          <mj-text font-size="16px" color="#3e2636" font-weight="400" font-family="OpenSans, Arial" align="center" line-height="28px" css-class="basic-text" font-style="italic">{{$lastMessage}}</mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-section background-color="#f0f7f7" padding="40px 4% 20px" background-color="#f0f7f7">
+        <mj-column>
+        <?php if($role === 'broker'): ?>
+          <mj-text font-size="16px" color="#3e2636" font-weight="400" font-family="OpenSans, Arial" align="center" line-height="28px" css-class="basic-text">Respond to them to get the ball rolling!</mj-text>
+        <?php else: ?>
+            <mj-text font-size="16px" color="#3e2636" font-weight="400" font-family="OpenSans, Arial" align="center" line-height="28px" css-class="basic-text">Keep the ball moving - view the full message<br/> and respond now</mj-text>
+        <?php endif; ?>
+        </mj-column>
+      </mj-section>
+      <mj-section background-color="#f0f7f7" padding="0 40px 20px">
+        <mj-column>
+          <mj-button background-color="#055d64" width="150px" href="{{$url}}">View Message</mj-button>
+        </mj-column>
+      </mj-section>
+    </mj-wrapper>
+    <mj-section background-color="#055d64" padding="40px">
+      <mj-column>
+        <!-- {{ asset('img/email/email_logo.png') }} -->
+        <mj-image width="145px" src="{{ asset('img/email/email_logo_footer.png') }}" alt="Finance Lobby - The CRE Financing Marketplace"></mj-image>
+        <mj-text font-size="13px" color="#ececec" font-weight="300" font-family="OpenSans, Arial" align="center" line-height="15px">&copy; Finance Lobby {{ $year }}</mj-text>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>

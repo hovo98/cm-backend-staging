@@ -1,0 +1,5 @@
+extend type Query {
+    chatLender(deal_id: Int): GetChatLender @field(resolver: "App\\GraphQL\\Queries\\Chat\\GetChatLender@resolve") @guard
+    chatBroker(deal_id: Int): GetChatBroker @field(resolver: "App\\GraphQL\\Queries\\Chat\\GetChatBroker@resolve") @guard
+    chatVideoCall(deal_id: Int): GetChatVideoCall @field(resolver: "App\\GraphQL\\Queries\\Chat\\GetChatVideoCall@resolve") @guard
+}

@@ -1,0 +1,33 @@
+input AddPaymentMethodInput {
+    stripe_id: String!,
+    default: Boolean,
+}
+
+input BuyQuote {
+    quote_id: Int
+    success_path: String
+    cancel_path: String
+}
+
+input BuyDeal {
+    deal_id: Int
+    success_path: String
+    cancel_path: String
+}
+
+input DeletePaymentMethod {
+    id: String!
+}
+
+input CheckPaymentStatus {
+    checkout_id: String!
+}
+
+input CreateSubscription {
+    plan_id: String!,
+    payment_method_id: String
+}
+
+input CancelSubscription {
+    plan_name: String
+}

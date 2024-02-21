@@ -1,0 +1,61 @@
+<mjml>
+	<mj-head>
+		<mj-font name="OpenSans" href="https://fonts.googleapis.com/css2?family=Open+Sans" />
+		<mj-style>
+			.basic-text a {
+				color: #f7ab42;
+				text-decoration: underline !important;
+			}
+
+			.basic-text strong {
+				color: #045d63 !important;
+			}
+      .preheader {
+      	display: none !important;
+          color: #f0f7f7;
+      }
+
+      .body {
+      	min-width: 600px;
+      }
+		</mj-style>
+	</mj-head>
+	<mj-body css-class="body">
+		<mj-section background-color="#fff" padding="54px 4% 15px 4%">
+			<mj-column>
+         <mj-text><span class="preheader">Here’s a tool I use that will change how you lend</span></mj-text>
+				<mj-image width="241px" src="{{ asset('img/email/email_logo.png') }}" alt="Finance Lobby - The CRE Financing Marketplace"></mj-image>
+			</mj-column>
+		</mj-section>
+		<mj-wrapper padding="40px 0 0" background-color="#fff">
+			<mj-section background-color="#f0f7f7" padding="55px 1% 60px">
+				<mj-column>
+					<mj-text font-size="25px" color="#3e2636" font-weight="700" font-family="OpenSans, Arial" align="left" padding-bottom="25px" css-class="basic-text">Hi,</mj-text>
+                    <mj-text font-size="20px" color="#3e2636" font-weight="500" font-family="OpenSans, Arial" align="left" padding-bottom="25px" css-class="basic-text">If you’re anything like me, you’ll love<a href="{{ $url }}" style="color: #0c8e8b; font-weight: 600;"> Finance Lobby.</a></mj-text>
+                    <mj-text font-size="18px" color="#3e2636" font-weight="400" font-family="OpenSans, Arial" align="left" padding-bottom="25px" css-class="basic-text" line-height="36px">We both know how challenging it can be to identify the right deal, to attract the right borrowers, to sift through the lard on the way to finding the gold.</mj-text>
+				</mj-column>
+			</mj-section>
+      <mj-section>
+      	<mj-column>
+        	<mj-text font-size="20px" color="#3e2636" font-weight="600" font-family="OpenSans, Arial" align="left" padding-bottom="25px" css-class="basic-text">To me, <a href="{{ $url }}" style="color: #0c8e8b; font-weight: 600;">Finance Lobby</a> is WD-40  for CRE professionals!</mj-text>
+          <mj-text font-size="18px" color="#3e2636" font-weight="400" font-family="OpenSans, Arial" align="left" padding-bottom="25px" css-class="basic-text" line-height="36px">By empowering you to set your individual criteria and finding deals that match EXACTLY what you want, it:</mj-text>
+
+          <mj-text font-size="16px" color="#3e2636" font-weight="600" font-family="OpenSans, Arial" align="left" height="40px"><img width="40px" src="{{ asset('img/email/checkmark.png') }}" alt="Icon of Checkmark"></img><span style="margin-left: 17px; margin-bottom: 5px; display: inline-block; height: 100%; vertical-align: middle;">makes sure all parties of a deal fit together perfectly</span></mj-text>
+          <mj-text font-size="16px" color="#3e2636" font-weight="600" font-family="OpenSans, Arial" align="left" height="40px"><img width="40px" src="{{ asset('img/email/checkmark.png') }}" alt="Icon of Checkmark"></img><span style="margin-left: 17px; margin-bottom: 5px; display: inline-block; height: 100%; vertical-align: middle;">helps every step of the process glide along smoothly</span></mj-text>
+          <mj-text font-size="16px" color="#3e2636" font-weight="600" font-family="OpenSans, Arial" align="left" height="40px"><img width="40px" src="{{ asset('img/email/checkmark.png') }}" alt="Icon of Checkmark"></img><span style="margin-left: 17px; margin-bottom: 5px; display: inline-block; height: 100%; vertical-align: middle;">avoids the hitch-and-glitch that plagues our business</span></mj-text>
+          <mj-text font-size="18px" color="#3e2636" font-weight="400" font-family="OpenSans, Arial" align="left" padding-bottom="25px" css-class="basic-text" line-height="36px">Since I started using <a href="{{ $url }}" style="color: #0c8e8b; font-weight: 600;">Finance Lobby</a>, I have seen a real increase in successful closing rates. Because above all, the system makes sure I never invest in a deal that isn’t the right fit for me.</mj-text>
+          <mj-text font-size="18px" color="#3e2636" font-weight="400" font-family="OpenSans, Arial" align="left" padding-bottom="25px" css-class="basic-text" line-height="36px">It would be hard to explain just how powerful that is to<br/> someone who isn’t in our industry. Which is why I know that<br/> you will get it—and get <a href="{{ $url }}" style="color: #0c8e8b; font-weight: 600;">Finance Lobby</a>.</mj-text>
+          <mj-divider border-width="2px" border-style="solid" border-color="#ebecef" width="314px" />
+          <mj-text font-size="18px" color="#3e2636" font-weight="600" font-family="OpenSans, Arial" align="left" padding-bottom="25px" css-class="basic-text" line-height="36px">I wish you the best of luck, and know that<br/><a href="{{ $url }}" style="color: #0c8e8b; font-weight: 600;">Finance Lobby</a> will bring you more of it.</mj-text>
+          <mj-text color="#f7ab42"><span>———</span><span style="color: #f7ab42; font-size: 20px; text-decoration: none; font-weight: 700; margin-left: 20px">{{ $senderName}}</span></mj-text>
+        </mj-column>
+      </mj-section>
+		</mj-wrapper>
+        <mj-section background-color="#055d64" padding="40px">
+			<mj-column>
+				<mj-image width="145px" src="{{ asset('img/email/email_logo_footer.png') }}" alt="Finance Lobby - The CRE Financing Marketplace"></mj-image>
+                <mj-text font-size="13px" color="#ececec" font-weight="300" font-family="OpenSans, Arial" align="center" line-height="15px">&copy; FinanceLobby {{ $currentYear }}</mj-text>
+			</mj-column>
+		</mj-section>
+	</mj-body>
+</mjml>

@@ -1,0 +1,29 @@
+input UpdateCompanyInput {
+    company_name: String
+    domain: String
+    company_address: String
+    company_city: String
+    company_state: String
+    company_zip_code: String
+    company_phone: String
+    is_approved: Boolean
+}
+
+type UpdateCompanyResponse{
+    success: Boolean!
+    message: String
+}
+
+type UpdateResponseCompanyLogo {
+    success: Boolean!
+    message: String
+    company_logo_url: String
+}
+
+type CompanyDataResponse {
+    company_data: Company
+}
+
+type CompanyLogoResponse {
+    company_logo_url: String
+}

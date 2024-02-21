@@ -1,0 +1,136 @@
+
+input QuoteRequestedLoan {
+    dollarAmount: Int,
+    loanValue: String,
+    loanCost: String
+}
+
+input QuoteCostInput {
+    costAmount: Int,
+    costPercent: String
+}
+
+input QuoteInterestRate {
+    fixedRateAmount: String,
+    yieldText: String,
+    spread: String,
+    floor_rate: String,
+    yield_second: String,
+    spread_second: String,
+    floor_rate_second: String,
+    swap_value: String
+}
+
+input QuoteExtensionOption {
+    duration: String,
+    feeAmount: Int,
+    feePercentage: String,
+    allowed: Int
+}
+
+input QuoteFeeInput {
+    feePercent: String,
+    feeAmount: Int
+}
+
+input QuoteExitFeePercent {
+    fee: QuoteFeeInput
+    comment: String
+}
+
+input QuoteConstructionLoans {
+    requestedLoan: QuoteRequestedLoan,
+    landCosts: QuoteCostInput,
+    softCosts: QuoteCostInput,
+    hardCosts: QuoteCostInput,
+    lendTowardsCosts: QuoteCostInput,
+    interestRateType: QuoteInterestRateType,
+    interestRate: QuoteInterestRate,
+    constructionTerm: String,
+    extensionOptionType: QuoteDecisionOptionType,
+    extensionOption: QuoteExtensionOption,
+    recourseOptionType: QuoteDecisionOptionType,
+    recourseType: [QuoteRecourseTypeType],
+    collectingFeeType: QuoteDecisionOptionType,
+    collectingFee: QuoteFeeInput,
+    exitFeeType: QuoteDecisionOptionType,
+    exitFee: QuoteExitFeePercent,
+    permanentLoanOptionType: QuoteDecisionOptionType,
+    recourseNote: String
+}
+
+input OfferAmountQuote {
+    amount: Int,
+    loanToValueRatio: String,
+    loanToCostRatio: String
+}
+
+input InterestRate {
+    amount: Int,
+    loanToValueRatio: String,
+    loanToCostRatio: String
+}
+
+input QuotePurchaseAndRefinanceLoans {
+    offer: OfferAmountQuote,
+    amountOfYears: Int,
+    amountOfYearsReset: QuoteDecisionOptionType,
+    interestRateType: QuoteInterestRateType,
+    interestRate: QuoteInterestRate,
+    interestPeriodType: QuoteDecisionOptionType
+    interestPeriod: String,
+    amortizationPeriod: String,
+    recourseType: QuoteDecisionOptionType,
+    recourseOptions: [QuoteRecourseTypePurchaseType],
+    recourseNote: String,
+    collectingOriginationFeeType: QuoteDecisionOptionType,
+    collectingOrigination: QuoteCostInput,
+    prePaymentYears: String,
+    prePaymentCustomYear: [String]
+
+}
+
+input QuoteObjectInput {
+    id: Int,
+    deal: DealInput!,
+    message: String,
+    finished: Boolean,
+    constructionLoans: QuoteConstructionLoans,
+    purchaseAndRefinanceLoans: QuotePurchaseAndRefinanceLoans
+}
+
+input QuoteErrorMessageInput {
+    message: String,
+    quote_id: Int,
+    deal_id: Int
+}
+
+input QuoteObjectFilterInput {
+    deal: DealInput,
+    sponsors: [String],
+    location: String,
+}
+
+input QuoteInput {
+    id: Int
+}
+
+input QuoteSetStatusInput {
+    id: Int,
+    status: QuoteStatus,
+    unacceptMessage: String
+}
+
+##########
+########## deal step status
+##########
+
+input QuoteStepStatusInput {
+    id: Int,
+    status: String
+}
+
+input QuoteByLender {
+    lender: Int,
+    deal: Int
+}

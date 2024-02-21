@@ -1,0 +1,16 @@
+extend type Mutation {
+    deal(input: DealObjectInput @spread): DealObjectType! @inject(context: "user.id", name: "user_id") @field(resolver: "App\\GraphQL\\Mutations\\Deal\\StoreDeal") @guard @can(ability: "isBrokerAndBetaUser", model: "App\\User")
+    dealStepStatus(input: DealStepStatusInput @spread): DealStepStatusType! @inject(context: "user.id", name: "user_id") @field(resolver: "App\\GraphQL\\Mutations\\Deal\\StoreDealStepStatus") @guard
+    shareDeals(input: ShareDealInput @spread): ResponseStatusShareDeal @inject(context: "user.id", name: "user_id") @field(resolver: "App\\GraphQL\\Mutations\\Deal\\ShareDeal") @guard @can(ability: "isBroker", model: "App\\User")
+    deleteDeals(input: [DealInput] @spread): ResponseStatus @inject(context: "user.id", name: "user_id") @field(resolver: "App\\GraphQL\\Mutations\\Deal\\DeleteDeal") @guard @can(ability: "isBroker", model: "App\\User")
+    archiveDeals(input: [DealInput] @spread): ResponseStatusDeal @inject(context: "user.id" name: "user_id") @field(resolver: "App\\GraphQL\\Mutations\\Deal\\ArchiveDeal@resolve") @guard @can(ability: "isLender", model: "App\\User")
+    unarchivedDeals(input: [DealInput] @spread): ResponseStatus @inject(context: "user.id" name: "user_id") @field(resolver: "App\\GraphQL\\Mutations\\Deal\\UnarchivedDeal@resolve") @guard @can(ability: "isLender", model: "App\\User")
+    unsavedDeals(input: [DealInput] @spread): ResponseStatus @inject(context: "user.id" name: "user_id") @field(resolver: "App\\GraphQL\\Mutations\\Deal\\UnsavedDeal@resolve") @guard @can(ability: "isLender", model: "App\\User")
+    saveDeals(input: [DealInput] @spread): ResponseStatusDeal @inject(context: "user.id" name: "user_id") @field(resolver: "App\\GraphQL\\Mutations\\Deal\\SaveDeal@resolve") @guard
+    DealEdit(input: DealObjectInput @spread): DealEditType! @inject(context: "user.id" name: "user_id") @field(resolver: "App\\GraphQL\\Mutations\\Deal\\EditDeal@resolve") @guard
+    # Skip deal from email
+    ignoreDeal(token: String! recaptcha:String! @rules(apply: ["required"]) @spread): ResponseStatusDeal @field(resolver: "App\\GraphQL\\Mutations\\Deal\\IgnoreDeal@resolve") @can(ability: "validRecaptcha", model: "App\\User")
+    # Skip deal from individual deal page
+    ignoreDealIndividual(deal_id: Int! @spread): ResponseStatusDeal @field(resolver: "App\\GraphQL\\Mutations\\Deal\\IgnoreDeal@resolve") @guard @can(ability: "isLender", model: "App\\User")
+    setManageTable(input: ManageTableInput!): ResponseManageTable! @inject(context: "user.id", name: "user_id") @field(resolver: "App\\GraphQL\\Mutations\\Deal\\SetManageTable")  @guard
+}

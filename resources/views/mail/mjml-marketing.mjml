@@ -1,0 +1,144 @@
+<mjml>
+	<mj-head>
+		<mj-font name="OpenSans" href="https://fonts.googleapis.com/css2?family=Open+Sans" />
+		<mj-font name="Montserrat" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" />
+		<mj-attributes>
+			<mj-class name="text" font-size="18px" color="#3e2636" font-family="OpenSans, Arial" font-weight="600" align="center"  line-height="2"></mj-class>
+			<mj-class name="text-medium" font-size="16px" color="#3e2636" font-weight="600" font-family="OpenSans, Arial" align="center" line-height="1.6"></mj-class>
+			<mj-class name="text-small" font-size="16px" color="#2f3034" font-weight="400" font-family="OpenSans, Arial" align="center" line-height="1.6"></mj-class>
+			<mj-class name="btn" border-radius="6px" background-color="#055d64" font-size="18px" color="#fff" font-family="OpenSans, Arial" font-weight="400" align="center" line-height="38px" width="240px"></mj-class>
+			<mj-class name="title" font-size="24px" color="#3e2636" font-weight="700" font-family="Montserrat, Arial" align="center"></mj-class>
+			<mj-class name="title-small" font-size="18px" color="#2f3034" font-weight="700" font-family="Montserrat, Arial" align="center" line-height="1.6" padding-bottom="30px"></mj-class>
+			<mj-class name="list-text" font-size="18px" color="#3e2636" font-family="OpenSans, Arial" font-weight="600" align="center"  line-height="1.35"></mj-class>
+			<mj-class name="half-box" padding="0 10px" />
+		</mj-attributes>
+		<mj-style>
+			.link {
+				color: #f7ab42;
+			}
+		</mj-style>
+	</mj-head>
+	<mj-body>
+		<mj-wrapper background-color="#f0f7f7">
+			<mj-section padding="40px 1% 20px">
+				<mj-column>
+					<mj-text mj-class="title">Hi, <span style="color:#045d63">Sam Smith</span></mj-text>
+					<mj-image alt="Screenshot of the Finance Lobby app" src="https://mcusercontent.com/74d2b691a72a5dec8de0e643f/images/3be56a01-e69c-48f5-b8a9-7743a1d48c65.png"></mj-image>
+				</mj-column>
+			</mj-section>
+			<mj-section padding="30px 4% 40px 4%">
+				<mj-column>
+					<mj-text mj-class="title">Stop Sifting Through Low-Quality Deals</mj-text>
+					<mj-text mj-class="text">
+						If you’re like most lenders, you know exactly what deals you want but still spend most of your day searching through irrelevant leads for one winner.
+					</mj-text>
+					<mj-text mj-class="text">
+						<a href="https://financelobby.com/" target="_blank" style="color:#045d63; text-decoration:underline">Finance Lobby</a> is a growing platform matching lenders with targeted, perfect-fit deals — all based on highly-customizable parameters set by you.
+					</mj-text>
+					<mj-text mj-class="text">
+						We’re finally rolling out capabilities in <span style="color:#045d63; text-decoration:underline">{lead’s area}</span>. As a recognized lender, we’re inviting you to pre-register.
+					</mj-text>
+					<mj-button mj-class="btn" target="_blank" href="https://app.financelobby.com/">Register Now</mj-button>
+					<mj-text font-size="18px" color="#3e2636" font-family="Montserrat, Arial" font-weight="700" align="center" line-height="30px">It's free!</mj-text>
+				</mj-column>
+			</mj-section>
+		</mj-wrapper>
+		<mj-wrapper background-color="#fff" padding="40px 4%">
+			<mj-section>
+        <mj-group>
+          <mj-column mj-class="half-box">
+            <mj-image alt="Screenshot of the Finance Lobby app"  width="125px" padding-bottom="15px" src="https://mcusercontent.com/74d2b691a72a5dec8de0e643f/images/d497d717-f5e0-411c-9398-b0ddf95a47bc.png" />
+            <mj-text mj-class="title-small">Stop sifting through</mj-text>
+            <mj-text  mj-class="text-small">Finance Lobby only sends you deals that perfectly match specific criteria you ask for.</mj-text>
+          </mj-column>
+          <mj-column mj-class="half-box">
+            <mj-image alt="Screenshot of the Finance Lobby app"  width="120px" padding-bottom="15px" src="https://mcusercontent.com/74d2b691a72a5dec8de0e643f/images/330e5d92-1ede-4c0a-ae4d-c9117d08a4ce.png" />
+            <mj-text mj-class="title-small">Skip the endless</mj-text>
+            <mj-text  mj-class="text-small">Each deal already includes the details you need to make an informed analysis and decision.</mj-text>
+          </mj-column>
+        </mj-group>
+			</mj-section>
+			<mj-section>
+        <mj-group>
+          <mj-column mj-class="half-box">
+            <mj-image alt="Screenshot of the Finance Lobby app"  width="120px" padding-bottom="15px" src="https://mcusercontent.com/74d2b691a72a5dec8de0e643f/images/f1671bed-3305-458e-b16a-15d12b680d8f.png" />
+            <mj-text mj-class="title-small">Bring only the best deals</mj-text>
+            <mj-text  mj-class="text-small">Instead of a mess of maybes, pick and present from a pool of promising and perfect-fit deals.</mj-text>
+          </mj-column>
+          <mj-column mj-class="half-box">
+            <mj-image alt="Screenshot of the Finance Lobby app"  width="144px" padding-bottom="15px" src="https://mcusercontent.com/74d2b691a72a5dec8de0e643f/images/58748766-7373-4257-bc01-5cee319ea054.png" />
+            <mj-text mj-class="title-small">Focus on landing those</mj-text>
+            <mj-text  mj-class="text-small">Spend the bulk of your day crafting winning proposals for winning leads.</mj-text>
+          </mj-column>
+        </mj-group>
+			</mj-section>
+		</mj-wrapper>
+		// How its Works
+		<mj-wrapper background-color="#fbf8f3" padding="50px 1% 40px">
+			<mj-section padding-bottom="20px">
+				<mj-column>
+					<mj-text mj-class="title">How it Works</mj-text>
+					<mj-text mj-class="list-text">
+						1. You set precisely what kind of deals you’re looking for.
+					</mj-text>
+					<mj-image alt="Screenshot of the Finance Lobby app"  src="https://mcusercontent.com/74d2b691a72a5dec8de0e643f/images/89c4fcbf-a4fa-4b41-b47a-39a853b9b1a5.png" />
+				</mj-column>
+			</mj-section>
+			<mj-section padding-bottom="20px">
+				<mj-column>
+					<mj-text mj-class="list-text">
+						2. Finance Lobby ONLY sends you relevant leads precisely matching your parameters. Each lead includes all the relevant information you need to make an informed decision, so you’re not spending time hunting those down.
+					</mj-text>
+					<mj-image alt="Screenshot of the Finance Lobby app"  src="https://mcusercontent.com/74d2b691a72a5dec8de0e643f/images/cc5c7d0e-44da-4672-bc45-31a6b716226e.png" />
+				</mj-column>
+			</mj-section>
+			<mj-section>
+				<mj-column>
+					<mj-text mj-class="list-text">
+						3. Review, select and quote to from the best of the best only.
+					</mj-text>
+					<mj-image alt="Screenshot of the Finance Lobby app"  src="https://mcusercontent.com/74d2b691a72a5dec8de0e643f/images/040e5e3b-fb43-4427-941a-c7ac02805f96.png" />
+				</mj-column>
+			</mj-section>
+		</mj-wrapper>
+		<mj-wrapper background-color="#fff" padding="50px 3%">
+			<mj-section padding="0 0 30px">
+				<mj-column padding="0">
+					<mj-text mj-class="title">From lenders loving the platform:</mj-text>
+				</mj-column>
+			</mj-section>
+			<mj-section padding="0 0 30px">
+				<mj-column padding="0">
+					<mj-image alt="Screenshot of the Finance Lobby app"  padding="0" src="https://mcusercontent.com/74d2b691a72a5dec8de0e643f/images/7a2ca847-9dc4-4f79-90d6-d9d5e51d7139.png" />
+				</mj-column>
+			</mj-section>
+			<mj-section padding="0 0 30px">
+				<mj-column padding="0">
+					<mj-image alt="Screenshot of the Finance Lobby app"  src="https://mcusercontent.com/74d2b691a72a5dec8de0e643f/images/cc3ad76a-87cc-4118-96c6-cb45de9a4f33.png" />
+				</mj-column>
+			</mj-section>
+		</mj-wrapper>
+		<mj-wrapper background-color="#f0f7f7" padding="50px 3%">
+			<mj-section padding="0">
+				<mj-column padding="0">
+					<mj-text mj-class="title" padding-bottom="20px">Ready to give Finance Lobby a try?</mj-text>
+					<mj-button mj-class="btn" padding-bottom="30px" target="_blank" href="https://app.financelobby.com/">Register Now</mj-button>
+					<mj-text mj-class="text-medium">
+						PS. If you have any questions, feel free to reply to this email
+					</mj-text>
+					<mj-text  mj-class="text-medium">
+						<a class="link" href="mailto:hello@financelobby.com">hello@financelobby.com</a>
+					</mj-text>
+				</mj-column>
+			</mj-section>
+		</mj-wrapper>
+		<mj-wrapper background-color="#055d64" padding="40px 0">
+			<mj-section padding="0">
+				<mj-column>
+					<mj-image width="253px" src="https://mcusercontent.com/74d2b691a72a5dec8de0e643f/images/662e7808-4048-462b-b3f9-7f3be3a81471.png"></mj-image>
+					<mj-text font-size="13px" color="#ececec" font-weight="300" font-family="OpenSans, Arial" align="center" line-height="15px">&copy; FinanceLobby 2021</mj-text>
+				</mj-column>
+			</mj-section>
+		</mj-wrapper>
+	</mj-body>
+</mjml>

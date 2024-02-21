@@ -1,0 +1,8 @@
+type LenderQuotesIndividualType {
+    quote: QuoteObjectType
+    broker: BrokerCompany
+}
+
+type BrokerCompany {
+    companyName: String
+}

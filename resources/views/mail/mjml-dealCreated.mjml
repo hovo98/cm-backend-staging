@@ -1,0 +1,146 @@
+<mjml>
+    <mj-head>
+        <mj-font name="OpenSans" href="https://fonts.googleapis.com/css2?family=Open+Sans"/>
+        <mj-style>
+            .basic-text a {
+            color: #f7ab42 !important;
+            text-decoration: underline !important;
+            }
+
+            .basic-text strong {
+            color: #045d63 !important;
+            }
+        </mj-style>
+    </mj-head>
+    <mj-body>
+        <mj-section background-color="#fff" padding="54px 4% 15px 4%">
+            <mj-column>
+                <mj-image width="241px" src="{{ asset('img/email/email_logo.png') }}" alt="Finance Lobby - The CRE Financing Marketplace"></mj-image>
+            </mj-column>
+        </mj-section>
+        <mj-wrapper padding="40px 4% 20px" background-color="#fff">
+            <mj-section background-color="#f0f7f7" padding="55px 1% 0">
+                <mj-column>
+                    <mj-text font-size="30px" color="#3e2636" font-weight="700" font-family="OpenSans, Arial"
+                             align="center" padding-bottom="25px">Hi {{ $user }},
+                    </mj-text>
+                </mj-column>
+            </mj-section>
+            <mj-section background-color="#f0f7f7" padding="0 1%">
+                <mj-column>
+                    <mj-text font-size="16px" color="#3e2636" font-weight="400" font-family="OpenSans, Arial"
+                             align="center" line-height="28px" css-class="basic-text">We’ve received a new loan request for quoting.<br/>Its loan parameters match the type of deals you<br/> asked to be notified about.
+                    </mj-text>
+                </mj-column>
+            </mj-section>
+
+            <!-- Deal summary redesign-->
+            <mj-section background-color="#f0f7f7" padding="30px 0 0">
+                <mj-column>
+                    <mj-text font-size="20px" color="#3e2636" font-weight="700" font-family="OpenSans, Arial"
+                             align="center" padding-bottom="0">Deal Summary
+                    </mj-text>
+                </mj-column>
+            </mj-section>
+            <mj-wrapper padding="20px 5% 20px" background-color="#f0f7f7">
+
+                <mj-section padding="20px" background-color="#fff">
+                    <mj-column background-color="#fff" width="33.23%">
+                        <mj-text font-size="14px" color="#055d64" font-weight="700" font-family="OpenSans, Arial"
+                                 align="center" background-color="#fff" padding="20px 10px">Loan Amount
+                        </mj-text>
+                        <mj-divider border-width="1px" border-style="solid" border-color="#f0f7f7" padding="0"/>
+                        <mj-text font-size="14px" color="#3e2636" font-weight="400" line-height="24px"
+                                 font-family="OpenSans, Arial" align="center" background-color="#fff" padding="20px 0"
+                                 css-class="informations">{{ $dollarAmount }}
+                        </mj-text>
+                    </mj-column>
+                    <mj-column width="1px" padding-bottom="20px">
+                    </mj-column>
+
+                    <mj-column background-color="#fff" width="33.23%">
+                        <mj-text font-size="14px" color="#055d64" font-weight="700" font-family="OpenSans, Arial"
+                                 align="center" background-color="#fff" padding="20px 10px">Location
+                        </mj-text>
+                        <mj-divider border-width="1px" border-style="solid" border-color="#f0f7f7" padding="0"/>
+                        <mj-text font-size="14px" color="#3e2636" font-weight="400" line-height="24px"
+                                 font-family="OpenSans, Arial" align="center" background-color="#fff" padding="20px 0"
+                                 css-class="informations" word-break="break-all">
+                            {{ $location }}
+                        </mj-text>
+                    </mj-column>
+
+                    <mj-column background-color="#fff" width="33.23%">
+                        <mj-text font-size="14px" color="#055d64" font-weight="700" font-family="OpenSans, Arial"
+                                 align="center" background-color="#fff" padding="20px 10px">Asset Type
+                        </mj-text>
+                        <mj-divider border-width="1px" border-style="solid" border-color="#f0f7f7" padding="0"/>
+                        <mj-text font-size="14px" color="#3e2636" font-weight="400" line-height="24px"
+                                 font-family="OpenSans, Arial" align="center" background-color="#fff" padding="20px 0"
+                                 css-class="informations">
+                           {{ $assetType }}
+                        </mj-text>
+                    </mj-column>
+                </mj-section>
+            </mj-wrapper>
+            <!-- Deal redesing END -->
+
+            <mj-section background-color="#f0f7f7" padding="0 40px 20px">
+                <mj-column>
+                    <mj-button background-color="#055d64" width="150px" href="{{ $viewDealUrl }}">View details
+                    </mj-button>
+                </mj-column>
+            </mj-section>
+
+          <mj-wrapper padding="20px 5% 20px" background-color="#f0f7f7">
+            <mj-section padding="10px 0" background-color="#FBF8F3">
+              <mj-column>
+            		<mj-text font-size="20px" color="#3e2636" font-weight="700" font-family="OpenSans, Arial"
+                         align="center" padding-bottom="0">What’s Next?</mj-text>
+                <mj-divider border-color="#FBF8F3"></mj-divider>
+                <mj-divider border-color="#FBF8F3"></mj-divider>
+                <mj-text font-size="16px" color="#3e2636" font-weight="600" font-family="OpenSans, Arial"
+                         align="left" padding-bottom="0">1. <a href="{{ $loginUrl }}" style="color:#299B98">Log in</a> to review the details</mj-text>
+                <mj-text font-size="16px" color="#3e2636" font-weight="400" font-family="OpenSans, Arial"
+                             align="left" line-height="28px" css-class="basic-text">We’ve put together a thorough overview of the transaction outlining everything you need to know about the transaction, including complete property and sponsor information, experience, and insights into the borrower’s priorities (ex. If they prioritize speed, no recourse, or a low interest rate above all else.). </mj-text>
+
+                <mj-divider border-color="#FBF8F3"></mj-divider>
+
+                <mj-text font-size="16px" color="#3e2636" font-weight="600" font-family="OpenSans, Arial"
+                         align="left" padding-bottom="0">2. Soft quote</mj-text>
+                <mj-text font-size="16px" color="#3e2636" font-weight="400" font-family="OpenSans, Arial"
+                             align="left" line-height="28px" css-class="basic-text">While you won’t have enough information yet to create a term sheet, you’ll be able to provide the borrower with a general idea of what you can offer, based on their deal and priorities — all without having to make a single phone call or email.</mj-text>
+
+                <mj-divider border-color="#FBF8F3"></mj-divider>
+
+                <mj-text font-size="16px" color="#3e2636" font-weight="600" font-family="OpenSans, Arial"
+                         align="left" padding-bottom="0">3. Take it to the finish line</mj-text>
+                <mj-text font-size="16px" color="#3e2636" font-weight="400" font-family="OpenSans, Arial"
+                             align="left" line-height="28px" css-class="basic-text"> If the borrower likes your quote, you’ll continue discussions outside the Lobby, in any way that works best for you both.</mj-text>
+
+                 <mj-divider border-color="#FBF8F3"></mj-divider>
+
+                <mj-text font-size="16px" color="#3e2636" font-weight="600" font-family="OpenSans, Arial"
+                         align="left" padding-bottom="0">4. Pssst... Don’t Wait. Be first to quote.</mj-text>
+                <mj-text font-size="16px" color="#3e2636" font-weight="400" font-family="OpenSans, Arial"
+                             align="left" line-height="28px" css-class="basic-text">Note: If your bank does not yet have a relationship with this borrower, anyone at your bank who is registered on the Lobby will also be able to view the deal.
+However, only one of you can land it.
+Be the first to quote to win the relationship.
+</mj-text>
+              </mj-column>
+            </mj-section>
+          </mj-wrapper>
+
+        </mj-wrapper>
+
+        <mj-section background-color="#055d64" padding="40px">
+            <mj-column>
+                <!-- {{ asset('img/email/email_logo.png') }} -->
+                <mj-image width="145px" src="{{ asset('img/email/email_logo_footer.png') }}" alt="Finance Lobby - The CRE Financing Marketplace"></mj-image>
+                <mj-text font-size="13px" color="#ececec" font-weight="300" font-family="OpenSans, Arial" align="center"
+                         line-height="15px">&copy; Finance Lobby {{ $year }}
+                </mj-text>
+            </mj-column>
+        </mj-section>
+    </mj-body>
+</mjml>

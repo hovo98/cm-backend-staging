@@ -1,0 +1,8 @@
+extend type Mutation {
+    paymentMethod(input: AddPaymentMethodInput @spread): PaymentMethodType! @inject(context: "user.id" name: "user_id") @field(resolver: "App\\GraphQL\\Mutations\\User\\Payments\\AddPaymentMethod@resolve") @guard
+    buyQuote(input: BuyQuote @spread): BuyQuoteType! @inject(context: "user.id" name: "user_id") @field(resolver: "App\\GraphQL\\Mutations\\User\\Payments\\BuyQuote@resolve") @guard
+    buyDeal(input: BuyDeal @spread): BuyDealType! @inject(context: "user.id" name: "user_id") @field(resolver: "App\\GraphQL\\Mutations\\User\\Payments\\BuyDeal@resolve") @guard
+    createSubscription(input: CreateSubscription @spread): SubscriptionType! @inject(context: "user.id" name: "user_id") @field(resolver: "App\\GraphQL\\Mutations\\User\\Payments\\CreateSubscription@resolve") @guard
+    cancelSubscription(input: CancelSubscription @spread): SubscriptionType! @inject(context: "user.id" name: "user_id") @field(resolver: "App\\GraphQL\\Mutations\\User\\Payments\\CancelSubscription@resolve") @guard
+    deletePaymentMethod(input: DeletePaymentMethod @spread): [PaymentMethodType!] @inject(context: "user.id" name: "user_id") @field(resolver: "App\\GraphQL\\Mutations\\User\\Payments\\DeletePaymentMethod@resolve") @guard
+}

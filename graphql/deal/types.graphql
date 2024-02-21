@@ -1,0 +1,402 @@
+type DealLocationType {
+    street_address: String
+    street_address_2: String
+    city: String
+    state: String
+    country: String
+    zip_code: String
+    place_id: String
+    sublocality: String
+    county: String
+    lat: Float
+    long: Float
+}
+
+type DealBlockAndLotType {
+    blockAndLot: String
+    block: String
+    lot: String
+}
+
+type DealAssetsType {
+    key: String
+    val: String
+}
+
+type DealSponsorInfoType {
+    name: String
+    ownership: String
+    years_experience: String
+    family_experience: String
+    annual_income: String
+    annual_expenses: String
+    liabilities: String
+    assets_real_estate: String
+    assets_companies: String
+    assets_other: String
+    assets_liquid:  String
+    net_worth: String
+    net_income: String
+    total_assets: String
+}
+
+type DealSponsorType {
+    sponsorInfo: [DealSponsorInfoType!]
+    multiple: String
+}
+
+type DealPurchaseLoanType {
+    price: Float
+    estimated_value: String @toInteger
+    estimated_cap_rate: String
+    days_to_close: String @toInteger
+    loan_amount: Float
+    ltc_purchase: String
+}
+
+type DealExistingLoanType {
+    amount: Float
+    lender_name: String
+}
+
+type DealRefinanceLoanType {
+    purchasePrice: String @toInteger
+    date: String
+    currentValue: String @toInteger
+    list: String
+    loanAmount: Float
+}
+
+type DealConstructionLoanType {
+    buying_land: String
+    debt_on_property: String
+    purchase_price: String
+    purchase_date: String
+    debt_amount: String
+    lender_name: String
+    loanAmount: Float
+    show_address_construction: String
+}
+
+type DealTaxAbatementType {
+    exists: Boolean
+    expiration_date: String
+    phase: String
+}
+
+type DealExpensesType {
+    taxNumber: String
+    tax: String
+    expDate: String
+    phaseStructure: String
+    payroll: String
+    insurance: String
+    repairs: String
+    payrollAmount: String
+    electricity: String
+    electricityAmount: String
+    electricitySeparatelyMetered: String
+    gas: String
+    gasAmount: String
+    commonArea: String
+    commonAreaAmount: String
+    water: String
+    waterAmount: String
+    management: String
+    managementAmount: String
+    legal: String
+    triple: String
+    reimbursement: String
+    otherExpenses: [OtherExpensesType]
+    additionalNotes: String
+    elevatorMaintenanceAmount: String
+    elevatorMaintenance: String
+    ooSewerAmount: String
+    gasSeparatelyMetered: String
+    managementCompanyName: String
+    ooWaterAmount: String
+    waterSeparatelyMetered: String
+    totalExpenses: String
+    netOperatingIncome: String
+    totalBusinessOperatingIncome: String
+}
+
+type DealInvestmentDetailsType {
+    mixedUse: [InvestmentType]
+    propType: InvestmentType
+    retailAmount: String @toInteger
+    retailSquare: String @toInteger
+    retailNumberOfUnitsOccupied: String @toInteger
+    retailSquareFootageOccupied: String @toInteger
+    retailType: String
+    multiAmount: String @toInteger
+    multiSquare: String @toInteger
+    multiNumberOfUnitsOccupied: String @toInteger
+    multiSquareFootageOccupied: String @toInteger
+    officeAmount: String @toInteger
+    officeSquare: String @toInteger
+    officeNumberOfUnitsOccupied: String @toInteger
+    officeSquareFootageOccupied: String @toInteger
+    warehouseAmount: String @toInteger
+    warehouseSquare: String @toInteger
+    warehouseNumberOfUnitsOccupied: String @toInteger
+    warehouseSquareFootageOccupied: String @toInteger
+    numberUnit: String @toInteger
+    numberUnitOccupied: String @toInteger
+    squareFootage: String @toInteger
+    squareFootageOccupied: String @toInteger
+    proposedUse: String
+    noteToLender: String
+
+    amountOfUnits: String @toInteger
+    rentableSellable: String @toInteger
+    retailFloors: String @toInteger
+    multiAmountOfUnits: String @toInteger
+    multiRentableSellable: String @toInteger
+    multiFloors: String @toInteger
+    officeAmountOfunits: String @toInteger
+    officeRentableSellable: String @toInteger
+    officeFloors: String @toInteger
+    industrialAmountOfUnits: String @toInteger
+    industrialRentableSellable: String @toInteger
+    industrialFloors: String @toInteger
+}
+
+type DealOwnerOccupiedType {
+    business_name: String
+    business_description: String
+    sales_amount: String
+    profit_amount: String
+    borrower_own: String
+    business_age: String
+    sales_amount_YTD: String
+    profit_amount_YTD: String
+    employees: String
+}
+
+type DealConstructionTypePropsType {
+    units: Int
+    footage: Int
+    floors: Int
+    projections: Int
+    rental_projections: Int
+}
+
+type DealConstructionType {
+    date: String
+    land_cost: String @toInteger
+    current_value: String @toInteger
+    hard_cost: String @toInteger
+    soft_cost: String @toInteger
+    loan_amount: String @toInteger
+    contractor_name: String
+    amount_units: String @toInteger
+    square_footage: String @toInteger
+    floors: String @toInteger
+    plans: String
+    second_projection: Boolean
+    projections: String
+    projections_sales: String @toInteger
+    projections_per_units: String @toInteger
+    projections_per_sf: String @toInteger
+    rental_per: String
+    rental_amount: String @toInteger
+    rental_projections_per_units: String @toInteger
+    rental_projections_per_sf: String @toInteger
+    projectionMixedUse: [projectionMixedUseTypes]
+}
+
+type projectionMixedUseTypes {
+    tag: String
+    projections: String
+    projections_sales: String
+    projections_per_units: String
+    projections_per_sf: String
+    rental_per: String
+    rental_amount: String
+    rental_projections_per_units: String
+    rental_projections_per_sf: String
+    plans: String
+    second_projection: Boolean
+    plansOrder:[String]
+}
+
+type DealExistingType {
+    propertyType: String
+    free: String
+    warehouse: String
+    lender: String
+}
+
+type DealRentRollType {
+    table: [DealRentRollTableType!]
+    annual_income: String
+    potential_income: String
+    increaseProjection: String
+    increasedNotes: String
+    betterNotes: String
+    capExBudget: String
+    tiBudget: String
+    lcBudget: String
+    timeFrame: String
+    plannedImprovements: String
+    enterCopy: String
+    monthle_total: String
+    annual_total: String
+    annual_sf_total: String
+    other_income: [OtherIncomeType]
+    totalIncome: String
+    vacancy: String
+    occupiedGroos: String
+}
+
+type DealRentRollTableType {
+    occupied: Boolean
+    unit_type: String
+    name: String
+    unit: String
+    bedroom: String
+    lease_start: String
+    lease_end: String
+    sf: String
+    monthle_rent: String
+    annual_rent: String
+    annual_rent_sf: String
+}
+
+type DealSensitivityType {
+    timeToClose: Int
+    recourse: Int
+    leverage: Int
+    interestRate: Int
+    fees: Int
+    interestOnlyPeriod: Int
+    nonPrepaymentPenalty: Int
+}
+
+type OtherExpensesType {
+    type: String
+    amount: String
+}
+
+type OtherIncomeType {
+    type: String
+    amount: String
+}
+
+type DealObjectType {
+    id: Int
+    termsheet: Int
+    finished: Boolean
+    finishApproved: Boolean
+    updated_at: Date
+    finished_at: String
+    step: String
+    lastStepStatus: String
+    location: DealLocationType
+    sponsor: DealSponsorType
+    upload_pfs: String
+    loan_type: LoanType
+    is_premium: Boolean
+    deal_type: String
+    show_address_purchase: String
+    property_type: PropertyType
+    purchase_loan: DealPurchaseLoanType
+    rent_roll: DealRentRollType
+    refinance_loan: DealRefinanceLoanType
+    construction_loan: DealConstructionLoanType
+    investment_details: DealInvestmentDetailsType
+    expenses: DealExpensesType
+    existing: DealExistingType
+    owner_occupied: DealOwnerOccupiedType
+    construction: DealConstructionType
+    sensitivity: DealSensitivityType
+    type_of_loans: [Int]
+    total_quotes: Int
+    has_new_quotes: Boolean
+    loan_amount: Int
+    block_and_lot: DealBlockAndLotType
+    type: AssetType
+    is_saved: Boolean
+    show_address: Boolean
+    quoted: Boolean
+    messages: Int
+    quotes: [QuoteObjectType]
+}
+
+type Termsheets {
+    id: Int
+    title: String
+}
+
+type DealObjectWithTermsType {
+    deal: DealObjectType
+    finished_at_individual: String
+    terms: [Termsheets]
+    termsheet_status: Boolean
+    status: Boolean
+    is_skipped: Boolean
+    name: String
+    quoted: Boolean
+    deal_editable: Boolean
+    until_next_edit: Int
+}
+
+type PaginatedDealObjectType {
+    data: [DealObjectType]
+    tags: FilterTagsDeals
+    assetTypes: [AssetType]
+    dollarAmount: PriceRange
+    paginatorInfo: paginatorInfo
+}
+
+type FilterTagsDeals {
+    context: String
+    filterName: String
+    searchTerms: String
+    loanSize: PriceRange
+    assetTypes: [AssetType]
+    sortBy: SortDealsTags
+}
+
+type SortDealsTags {
+    sort: SortByFiltrationDeal
+    by: SortDirectionDeal
+}
+
+type DealStepStatusType {
+    id: Int
+    lastStepStatus: String
+}
+
+type ResponseStatus {
+    status: Boolean
+}
+
+type ResponseStatusShareDeal {
+    errorMessage: [ErrorMessage]
+}
+type ErrorMessage {
+    message: String
+}
+
+type ResponseStatusDeal {
+    status: Boolean
+    message: String
+}
+
+type ResponseManageTable {
+    manageTable: [String]
+    table: String
+}
+
+type PriceRange {
+    min: Int
+    max: Int
+}
+
+type DealEditType {
+    status: Boolean
+    message: String
+    finished: Boolean
+}

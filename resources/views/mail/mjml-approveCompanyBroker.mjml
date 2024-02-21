@@ -1,0 +1,43 @@
+<mjml>
+	<mj-head>
+		<mj-font name="OpenSans" href="https://fonts.googleapis.com/css2?family=Open+Sans" />
+		<mj-style>
+			.basic-text a {
+				color: #f7ab42 !important;
+				text-decoration: underline !important;
+			}
+
+			.basic-text strong {
+				color: #045d63 !important;
+			}
+		</mj-style>
+	</mj-head>
+	<mj-body>
+		<mj-section background-color="#fff" padding="54px 4% 15px 4%">
+			<mj-column>
+				<mj-image width="241px" src="{{ asset('img/email/email_logo.png') }}" alt="Finance Lobby - The CRE Financing Marketplace"></mj-image>
+			</mj-column>
+		</mj-section>
+		<mj-wrapper padding="40px 4% 20px" background-color="#fff">
+			<mj-section background-color="#f0f7f7" padding="55px 1% 0">
+				<mj-column>
+					<mj-image alt="Icon with checkmark" width="115px" padding-bottom="40px" src="{{ asset('img/email/approved-account.png') }}"></mj-image>
+					<mj-text font-size="30px" color="#3e2636" font-weight="700" font-family="OpenSans, Arial" align="center" padding-bottom="25px">Approve Domain Name</mj-text>
+				</mj-column>
+			</mj-section>
+			<mj-section background-color="#f0f7f7" padding="0 1% 60px">
+				<mj-column>
+					<mj-text font-size="16px" color="#3e2636" font-weight="400" font-family="OpenSans, Arial" align="center" line-height="28px" css-class="basic-text">A broker signed up with the domain {{$domain}} which is not an approved domain.</mj-text>
+			<mj-button background-color="#055d64" href="{{ $url }}">View and Approve</mj-button>
+				</mj-column>
+			</mj-section>
+		</mj-wrapper>
+        <mj-section background-color="#055d64" padding="40px">
+			<mj-column>
+                <!-- {{ asset('img/email/email_logo.png') }} -->
+				<mj-image width="145px" src="{{ asset('img/email/email_logo_footer.png') }}" alt="Finance Lobby - The CRE Financing Marketplace"></mj-image>
+                <mj-text font-size="13px" color="#ececec" font-weight="300" font-family="OpenSans, Arial" align="center" line-height="15px">&copy; Finance Lobby {{ $year }}</mj-text>
+			</mj-column>
+		</mj-section>
+	</mj-body>
+</mjml>

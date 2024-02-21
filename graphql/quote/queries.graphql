@@ -1,0 +1,7 @@
+extend type Query {
+    quoteFilter(pagination: PaginationInput, input: QuoteObjectFilterInput @spread): PaginatedQuoteObjectType! @inject(context: "user.id", name: "user_id") @field(resolver: "App\\GraphQL\\Mutations\\Quote\\FilterQuote") @guard
+}
+extend type Query {
+    quoteObject(input: QuoteInput @spread): QuoteObjectType! @inject(context: "user.id", name: "user_id") @field(resolver: "App\\GraphQL\\Mutations\\Quote\\Quote") @guard
+    lenderGetAllQuotes(pagination: PaginationInput @spread): PaginatedQuoteObjectType! @inject(context: "user.id", name: "user_id") @field(resolver: "App\\GraphQL\\Queries\\Quote\\LenderAllQuotes@resolve") @guard @can(ability: "isLender", model: "App\\User")
+}

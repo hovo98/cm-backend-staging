@@ -1,0 +1,8 @@
+extend type Query {
+    brokerQuotesIndividual(input: BrokerQuotesIndividualInput @spread): BrokerQuotesIndividualType @inject(context: "user.id", name: "user_id") @field(resolver: "App\\GraphQL\\Requests\\Broker\\Quotes\\Individual") @guard @can(ability: "isBroker", model: "App\\User")
+}
+
+extend type Query {
+    brokerGetAllQuotes(pagination: PaginationInput input: BrokerFilterQuotesInput  @spread): PaginatedBrokerAllQuotes! @inject(context: "user.id", name: "user_id") @field(resolver: "App\\GraphQL\\Requests\\Broker\\Quotes\\AllQuotes") @guard @can(ability: "isBroker", model: "App\\User")
+}
+

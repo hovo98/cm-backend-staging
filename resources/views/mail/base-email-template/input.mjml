@@ -1,0 +1,40 @@
+<mjml>
+	<mj-head>
+		<mj-font name="OpenSans" href="https://fonts.googleapis.com/css2?family=Open+Sans" />
+		<mj-style>
+			.basic-text a {
+				color: #f7ab42 !important;
+				text-decoration: underline !important;
+			}
+
+			.basic-text strong {
+				color: #045d63 !important;
+			}
+		</mj-style>
+	</mj-head>
+	<mj-body>
+		<mj-section background-color="#fff" padding="54px 4% 15px 4%">
+			<mj-column>
+                <!-- {{ asset('img/email/email_logo.png') }} -->
+				<mj-image width="241px" src="../../../../public/img/email/email_logo.png"></mj-image>
+			</mj-column>
+		</mj-section>
+		<mj-section background-color="#fff" padding="0 4% 0 4%">
+            <mj-column>
+                <mj-text font-size="30px" color="#3e2636" font-weight="700" font-family="OpenSans, Arial" align="center">Your account is approved.</mj-text>
+            </mj-column>
+		</mj-section>
+        <mj-section background-color="#fff" padding-left="5%" padding-right="5%" padding-bottom="70px">
+			<mj-column>
+				<mj-text font-size="16px" color="#3e2636" font-weight="400" font-family="OpenSans, Arial" align="center" line-height="36px" css-class="basic-text"><strong>Your</strong> account is approved and you can start using benefits of our platform. Create a new deal if you are a broker and create bids if you are a lender. <a href="">asasass</a></mj-text>
+			</mj-column>
+		</mj-section>
+        <mj-section background-color="#055d64" padding="40px">
+			<mj-column>
+                <!-- {{ asset('img/email/email_logo.png') }} -->
+				<mj-image width="145px" src="../../../../public/img/email/email_logo_footer.png"></mj-image>
+                <mj-text font-size="13px" color="#ececec" font-weight="300" font-family="OpenSans, Arial" align="center" line-height="15px">&copy; FinanceLobby 2020</mj-text>
+			</mj-column>
+		</mj-section>
+	</mj-body>
+</mjml>

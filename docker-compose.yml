@@ -1,0 +1,21 @@
+version: '3'
+services:
+  postgresql:
+    platform: linux/x86_64
+    image: 'postgres:13'
+    ports:
+      - '15432:5432'
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: docker_database
+      POSTGRES_USER: sail
+    volumes:
+      - 'sailpostgres:/var/lib/postgresql/data'
+    networks:
+      - sail
+networks:
+  sail:
+    driver: bridge
+volumes:
+  sailpostgres:
+    driver: local

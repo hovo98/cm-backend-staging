@@ -1,0 +1,46 @@
+<mjml>
+	<mj-head>
+		<mj-font name="OpenSans" href="https://fonts.googleapis.com/css2?family=Open+Sans" />
+		<mj-style>
+			.basic-text a {
+				color: #f7ab42 !important;
+				text-decoration: underline !important;
+			}
+
+			.basic-text strong {
+				color: #045d63 !important;
+			}
+		</mj-style>
+	</mj-head>
+	<mj-body>
+		<mj-section background-color="#fff" padding="54px 4% 15px 4%">
+			<mj-column>
+				<mj-image width="241px" src="{{ asset('img/email/email_logo.png') }}" alt="Finance Lobby - The CRE Financing Marketplace"></mj-image>
+			</mj-column>
+		</mj-section>
+		<mj-wrapper padding="40px 4% 20px" background-color="#fff">
+			<mj-section background-color="#f0f7f7" padding="55px 1% 0">
+				<mj-column>
+					<mj-image width="115px" padding-bottom="40px" src="{{ asset('img/email/approved-account.png') }}" alt="Icon with checkmark"></mj-image>
+					<mj-text font-size="30px" color="#3e2636" font-weight="700" font-family="OpenSans, Arial" align="center" padding-bottom="25px">Hi {{ $brokerName }},</mj-text>
+				</mj-column>
+			</mj-section>
+			<mj-section background-color="#f0f7f7" padding="0 1% 60px">
+				<mj-column>
+					<mj-text font-size="16px" color="#3e2636" font-weight="400" font-family="OpenSans, Arial" align="center" line-height="28px" css-class="basic-text">We checked in with {{ $bankName }} and they were no longer able to honor the terms of their offer made on {{ $quoteFinishedDate }}, due to the lapse in time and changing market conditions.</mj-text>
+                    <mj-text font-size="16px" color="#3e2636" font-weight="600" font-family="OpenSans, Arial" align="center" line-height="28px" css-class="basic-text">What next?</mj-text>
+                    <mj-text font-size="16px" color="#3e2636" font-weight="400" font-family="OpenSans, Arial" align="center" line-height="28px" css-class="basic-text">We’re here to help you bring your deal to the finish line.</mj-text>
+                    <mj-text font-size="16px" color="#3e2636" font-weight="400" font-family="OpenSans, Arial" align="center" line-height="28px" css-class="basic-text">1. Review your alternate accepted quote for this deal <a href="{{ $alternateQuoteUrl }}">Go ></a></mj-text>
+                    <mj-text font-size="16px" color="#3e2636" font-weight="400" font-family="OpenSans, Arial" align="center" line-height="28px" css-class="basic-text">2. Rerequest funding by creating a new deal <a href="{{ $createDealUrl }}">Go ></a></mj-text>
+				</mj-column>
+			</mj-section>
+		</mj-wrapper>
+        <mj-section background-color="#055d64" padding="40px">
+			<mj-column>
+                <!-- {{ asset('img/email/email_logo.png') }} -->
+				<mj-image width="145px" src="{{ asset('img/email/email_logo_footer.png') }}" alt="Finance Lobby - The CRE Financing Marketplace"></mj-image>
+                <mj-text font-size="13px" color="#ececec" font-weight="300" font-family="OpenSans, Arial" align="center" line-height="15px">&copy; Finance Lobby {{ $year }}</mj-text>
+			</mj-column>
+		</mj-section>
+	</mj-body>
+</mjml>

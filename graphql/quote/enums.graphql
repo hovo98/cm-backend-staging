@@ -1,0 +1,54 @@
+enum QuoteInterestRateType {
+    UNDEFINED @enum(value: 0)
+    FIXED @enum(value: 1)
+    FLOATING  @enum(value: 2)
+    FLOATING_TO_BE_FIXED_BEFORE_CLOSING @enum(value: 3)
+    SWAP  @enum(value: 4)
+}
+
+enum QuoteDecisionOptionType {
+    UNDEFINED @enum(value: 0)
+    YES @enum(value: 1)
+    NO  @enum(value: 2)
+}
+
+enum QuoteRecourseTypeType {
+    UNDEFINED @enum(value: 0)
+    FULL_RECOURSE @enum(value: 1)
+    PARTIAL_RECOURSE  @enum(value: 2)
+    BAD_BOY_CARVEOUTS  @enum(value: 3)
+}
+
+enum QuoteRecourseTypePurchaseType {
+    UNDEFINED @enum(value: 0)
+    FULL_RECOURSE @enum(value: 1)
+    PARTIAL_RECOURSE @enum(value: 2)
+    BURNOFF_RECOURSE @enum(value: 3)
+    SPRINGING_RECOURSE @enum(value: 4)
+    BAD_BOY_CARVEOUTS @enum(value: 5)
+}
+
+enum SortByFiltrationQuote {
+    GENERAL @enum(value: "general")
+    LOCATION @enum(value: "location")
+    DOLLAR_AMOUNT @enum(value: "dollar_amount")
+    PROPERTY_TYPE @enum(value: "property_type")
+    INTEREST_RATE @enum(value: "interest_rate")
+    RATE_TERM @enum(value: "rate_term")
+    ORIGINATION_FEE @enum(value: "origination_fee")
+}
+
+enum SortDirectionQuote {
+    ASC @enum(value: "asc")
+    DESC @enum(value: "desc")
+}
+
+enum QuoteStatus {
+    OPENED @enum(value: 1)
+    ACCEPTED @enum(value: 2)
+    NOT_AVAILABLE @enum(value: 3)
+    INACTIVE @enum(value: 4)
+    PENDING @enum(value: 5)
+    SECOND_ACCEPTED @enum(value: 6)
+    DECLINED @enum(value: 7)
+}

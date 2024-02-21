@@ -1,0 +1,211 @@
+<mjml>
+	<mj-head>
+		<mj-font name="OpenSans" href="https://fonts.googleapis.com/css2?family=Open+Sans" />
+		<mj-font name="Montserrat" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" />
+		<mj-attributes>
+			<mj-wrapper padding="0" background-color="#fff" />
+			<mj-section padding="0" background-color="#fff" />
+			<mj-class name="title-md" font-size="18px" color="#3e2636" font-weight="600" font-family="OpenSans, Arial" align="center" />
+
+			<mj-class name="title-sm" font-size="16px" color="#045d63" font-weight="600" align="center" padding-bottom="10px" padding-top="15px" />
+
+			<mj-class name="title-semi" font-size="30px"
+			line=height="1.2" color="#3e2636" font-family="Montserrat, Arial" font-weight="600" align="center" padding-bottom="10px" />
+			<mj-class name="title-xs" font-size="14px" color="#f7ab42" font-weight="700" align="center" padding-bottom="5px" />
+			<mj-class name="title-sm-dark" font-size="16px" color="#3e2636" font-weight="600" align="center" padding-bottom="15px" padding-top="0" />
+			<mj-class name="text-sm" font-size="14px" color="#3e2636" font-weight="600" align="center" padding-bottom="10px" />
+			<mj-class name="text-emp" font-size="14px" color="#3e2636" font-weight="500" align="center" padding-top="0" padding-bottom="15px" font-style="italic" line-height="1.4" />
+			<mj-class name="button" font-size="16px" color="#0c8e8b" font-weight="600" align="center" padding-bottom="10px" />
+			<mj-all font-family="OpenSans, Arial" line-height="1.8" />
+			<mj-class name="text" font-size="16px" padding-bottom="10px" color="#3e2636" font-family="OpenSans, Arial" font-weight="500" align="center" line-height="2"></mj-class>
+      <mj-class name="preheader" style="display: none !important; visibility: hidden; opacity: 0; color: transparent; height: 0; width: 0;"></mj-class>
+		</mj-attributes>
+		<mj-style>
+			.link {
+				color: #f7ab42;
+			}
+			.button {
+				color: #0c8e8b;
+				cursor: pointer;
+				transition: 350ms ease;
+			}
+			.button:hover {
+				color: #045d63;
+			}
+      .preheader {
+      	display: none !important;
+          color: #f0f7f7;
+      }
+		</mj-style>
+	</mj-head>
+	<mj-body>
+		<mj-section padding="54px 4% 25px 4%" background-color="#fbf8f3">
+			<mj-column>
+            <mj-text><span class="preheader">Here's a quick review of your preferences.	        		                      </span></mj-text>
+				<mj-image width="241px" src="{{ asset('img/email/email_logo.png') }}" alt="Finance Lobby - The CRE Financing Marketplace"></mj-image>
+			</mj-column>
+		</mj-section>
+		<mj-section padding="0 4% 40px 4%" background-color="#fbf8f3">
+            <mj-column>
+				<mj-image alt="Welcome banner" padding="0" src="{{ asset('img/email/welocme_email_banner.jpg') }}"></mj-image>
+        		<mj-text font-size="28px" padding-top="30px" color="#3e2636" font-family="Montserrat, Arial" align="center" font-weight="700">Welcome to Finance Lobby</mj-text>
+				<mj-text mj-class="text">We're looking forward to helping you find perfect-fit deals.</mj-text>
+            </mj-column>
+		</mj-section>
+		<mj-section padding="40px 5% 40px 5%">
+            <mj-column>
+				<mj-text mj-class="title-semi" color="#045d63">What's next?</mj-text>
+				<mj-text mj-class="text">We'll email you whenever we locate a perfect-fit deal for you.</mj-text>
+            </mj-column>
+		</mj-section>
+		<mj-wrapper padding="40px 4% 40px 4%" background-color="#f0f7f7">
+			<mj-section background-color="#f0f7f7" padding-bottom="20px">
+				<mj-column>
+					<mj-text mj-class="title-semi">Your Deal Preferences</mj-text>
+				</mj-column>
+			</mj-section>
+			<mj-section background-color="#fff" padding-top="15px">
+				<mj-column>
+					<mj-image alt="Icon of Location" width="119px" padding-bottom="20px" src="{{ asset('img/email/location_icon.png') }}"></mj-image>
+					<mj-text mj-class="title-sm-dark">I service deals located in:</mj-text>
+				</mj-column>
+			</mj-section>
+			<mj-section background-color="#fff" padding="0">
+				<mj-raw>@foreach($areas as $area)</mj-raw>
+					<mj-column width="50%" padding="0 8px 15px" >
+						<mj-text mj-class="title-sm" container-background-color="#f0f7f7">{{ $area->formattedArea() }}</mj-text>
+						<mj-divider border-width="2px" border-style="solid" border-color="#fbf8f3" padding="0" />
+						<mj-raw>@if($area->formattedExclusions())</mj-raw>
+							<mj-text mj-class="title-xs">Excluding:</mj-text>
+							<mj-text mj-class="text-emp">{{ implode(",  ", $area->formattedExclusions()) }}</mj-text>
+						<mj-raw>@else</mj-raw>
+            	<mj-text mj-class="title-xs">Excluding:</mj-text>
+							<mj-text mj-class="text-emp">There are no excluded areas.</mj-text>
+            <mj-raw>@endif</mj-raw>
+						<mj-divider border-width="1px" border-style="solid" border-color="#f0f7f7" padding="0" />
+					</mj-column>
+				<mj-raw>@endforeach</mj-raw>
+			</mj-section>
+		</mj-wrapper>
+
+		<mj-wrapper padding="20px 4% 30px 4%" background-color="#f0f7f7">
+			<mj-section background-color="#fff" padding-top="15px">
+				<mj-column>
+					<mj-image alt="Icon of Range" width="119px" padding-bottom="20px" src="{{ asset('img/email/range.png') }}"></mj-image>
+					<mj-text mj-class="title-sm-dark">My preferred loan range is:</mj-text>
+				</mj-column>
+			</mj-section>
+			<mj-section padding-left="4%" padding-right="4%" padding-bottom="40px">
+				<mj-column background-color="#f0f7f7">
+					<mj-text mj-class="title-sm">${{ $loanRange->formattedMin() }} - ${{ $loanRange->formattedMax() }}</mj-text>
+				</mj-column>
+			</mj-section>
+		</mj-wrapper>
+
+		<mj-wrapper padding="20px 4% 30px 4%" background-color="#f0f7f7">
+			<mj-section background-color="#fff" padding-top="40px">
+				<mj-column>
+					<mj-text mj-class="title-sm-dark">I prefer these types of properties:</mj-text>
+				</mj-column>
+			</mj-section>
+      <mj-section background-color="#fff" padding-left="0" padding-right="0" padding-bottom="15px">
+			<mj-raw>@foreach($assetTypes as $id => $assetType)</mj-raw>
+				<mj-column width="33%" padding="0 8px 15px">
+
+    				<mj-raw>@if($id === 1)</mj-raw>
+        		<mj-image alt="Icon of Retail" width="119px" padding-bottom="20px" src="{{ asset('img/email/retail.png') }}"></mj-image>
+
+
+          	<mj-raw>@elseif($id === 2)</mj-raw>
+        		<mj-image alt="Icon of Office" width="119px" padding-bottom="20px" src="{{ asset('img/email/office.png') }}"></mj-image>
+
+
+          	<mj-raw>@elseif($id === 3)</mj-raw>
+        		<mj-image alt="Icon of Industrial" width="119px" padding-bottom="20px" src="{{ asset('img/email/industrial.png') }}"></mj-image>
+
+
+   					<mj-raw>@elseif($id === 4)</mj-raw>
+        		<mj-image alt="Icon of Mixed use" width="119px" padding-bottom="20px" src="{{ asset('img/email/mixed-use.png') }}"></mj-image>
+
+
+          	<mj-raw>@elseif($id === 5)</mj-raw>
+        		<mj-image alt="Icon of Construction" width="119px" padding-bottom="20px" src="{{ asset('img/email/construction.png') }}"></mj-image>
+
+
+          	<mj-raw>@elseif($id === 6)</mj-raw>
+        		<mj-image alt="Icon of Owner Occipied" width="119px" padding-bottom="20px" src="{{ asset('img/email/owner-occupied.png') }}"></mj-image>
+
+
+          	<mj-raw>@elseif($id === 7)</mj-raw>
+        		<mj-image alt="Icon of Land" width="119px" padding-bottom="20px" src="{{ asset('img/email/land.png') }}"></mj-image>
+
+
+          	<mj-raw>@elseif($id === 8)</mj-raw>
+        		<mj-image alt="Icon of Multifamily" width="119px" padding-bottom="20px" src="{{ asset('img/email/multifamily.png') }}"></mj-image>
+						<mj-raw>@endif</mj-raw>
+
+					<mj-text mj-class="title-sm-dark">{{ $assetType }}</mj-text>
+          <mj-raw>@if($id === 8 && $multifamily)</mj-raw>
+          	<mj-text mj-class="title-sm-dark" padding="0">({{ $multifamily->min_amount() }}-{{ $multifamily->max_amount() }} units)</mj-text>
+          <mj-raw>@endif</mj-raw>
+				</mj-column>
+		<mj-raw>@endforeach</mj-raw>
+    </mj-section>
+		</mj-wrapper>
+		<mj-raw>@if(!empty($otherAssetTypes))</mj-raw>
+      <mj-wrapper padding="20px 4% 30px 4%" background-color="#f0f7f7">
+        <mj-section background-color="#fff" padding-top="40px">
+          <mj-column>
+            <mj-text mj-class="title-sm-dark">Other asset types that interest you:</mj-text>
+          </mj-column>
+        </mj-section>
+        <mj-section background-color="#fff" padding-left="0" padding-right="0" padding-bottom="15px">
+        <mj-raw>@foreach($otherAssetTypes as $id => $otherAssetType)</mj-raw>
+          <mj-column width="33%" padding="0 8px 15px">
+
+              <mj-raw>@if($id === 1)</mj-raw>
+              <mj-image alt="Icon of Healthcare" width="119px" padding-bottom="20px" src="{{ asset('img/email/healthcare.png') }}"></mj-image>
+
+
+              <mj-raw>@elseif($id === 2)</mj-raw>
+              <mj-image alt="Icon of Hospitality" width="119px" padding-bottom="20px" src="{{ asset('img/email/hospitality.png') }}"></mj-image>
+
+
+              <mj-raw>@elseif($id === 3)</mj-raw>
+              <mj-image alt="Icon of Agriculture" width="119px" padding-bottom="20px" src="{{ asset('img/email/agriculture.png') }}"></mj-image>
+
+
+              <mj-raw>@elseif($id === 4)</mj-raw>
+              <mj-image alt="Icon of non-profits" width="119px" padding-bottom="20px" src="{{ asset('img/email/non-profits.png') }}"></mj-image>
+
+
+              <mj-raw>@elseif($id === 5)</mj-raw>
+              <mj-image alt="Icon of Bifurcated Assets" width="119px" padding-bottom="20px" src="{{ asset('img/email/bifurcated-assets.png') }}"></mj-image>
+            	<mj-raw>@endif</mj-raw>
+
+              <mj-text mj-class="title-sm-dark">{{ $otherAssetType }}</mj-text>
+
+          	  <mj-raw>@if($id === 5 && $bifurcatedAssets)</mj-raw>
+          	  	<mj-text mj-class="title-sm-dark" padding="0">({{ $bifurcatedAssets }})	</mj-text>
+              <mj-raw>@endif</mj-raw>
+
+          </mj-column>
+      <mj-raw>@endforeach</mj-raw>
+      </mj-section>
+      </mj-wrapper>
+	<mj-raw>@endif</mj-raw>
+
+    <mj-section background-color="#f0f7f7" padding="0 1% 10px">
+        <mj-column>
+          <mj-text mj-class="title-sm-dark">Login to change your preferences</mj-text>
+          <mj-button background-color="#055d64" padding="0 0 15px" href="https://beta.financelobby.com/login">Login to Finance Lobby</mj-button>
+        </mj-column>
+      </mj-section>
+        <mj-section background-color="#055d64" padding="40px">
+			<mj-column>
+				<mj-image width="145px" src="{{ asset('img/email/email_logo_footer.png') }}" alt="Finance Lobby - The CRE Financing Marketplace"></mj-image>
+                <mj-text font-size="13px" color="#ececec" font-weight="300" font-family="OpenSans, Arial" align="center" line-height="15px">&copy; Finance Lobby {{ $year }}</mj-text>
+			</mj-column>
+		</mj-section>
+	</mj-body>
+</mjml>

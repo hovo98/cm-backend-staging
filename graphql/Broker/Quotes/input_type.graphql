@@ -1,0 +1,16 @@
+input BrokerQuotesIndividualInput {
+    lender: Int,
+    deal: Int
+}
+
+input BrokerFilterQuotesInput {
+    searchLocation: String,
+    sponsorNames: [String],
+    sponsorName: String,
+    sortBy: SortQuotes
+}
+
+input SortQuotes {
+    sort: SortByFiltrationQuote
+    by: SortDirectionQuote
+}

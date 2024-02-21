@@ -1,0 +1,14 @@
+type Company {
+    id: ID!
+    company_name: String
+    domain: String!
+    company_address: String
+    company_city: String
+    company_state: String
+    company_zip_code: String
+    company_phone: String
+    is_approved: Boolean
+    company_status: String
+    company_logo: Upload
+    company_logo_url: String
+}

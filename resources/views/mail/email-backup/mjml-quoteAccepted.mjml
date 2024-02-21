@@ -1,0 +1,81 @@
+<mjml>
+	<mj-head>
+		<mj-font name="OpenSans" href="https://fonts.googleapis.com/css2?family=Open+Sans" />
+		<mj-style>
+			.basic-text a {
+				color: #f7ab42 !important;
+				text-decoration: underline !important;
+			}
+
+			.basic-text strong {
+				color: #045d63 !important;
+			}
+		</mj-style>
+	</mj-head>
+	<mj-body>
+		<mj-section background-color="#fff" padding="54px 4% 15px 4%">
+			<mj-column>
+				<mj-image width="241px" src="{{ asset('img/email/email_logo.png') }}" alt="Finance Lobby - The CRE Financing Marketplace"></mj-image>
+			</mj-column>
+		</mj-section>
+		<mj-wrapper padding="40px 4% 20px" background-color="#fff">
+			<mj-section background-color="#f0f7f7" padding="55px 1% 0">
+				<mj-column>
+					<mj-text font-size="30px" color="#3e2636" font-weight="700" font-family="OpenSans, Arial" align="center" padding-bottom="25px">It's a match!</mj-text>
+          <mj-text font-size="30px" color="#3e2636" font-weight="700" font-family="OpenSans, Arial" align="center" padding-bottom="25px">The quote for {{$quote['Dollar Amount']}} on the deal in {{ $deal['neighbourhood'] }} was accepted!</mj-text>
+				</mj-column>
+			</mj-section>
+			<mj-section background-color="#f0f7f7" padding="55px 1% 60px">
+				<mj-column>
+					<mj-text font-size="16px" color="#3e2636" font-weight="400" font-family="OpenSans, Arial" align="center" line-height="28px" css-class="basic-text">Deal info</mj-text>
+          <mj-text font-size="16px" color="#3e2636" font-weight="400" font-family="OpenSans, Arial" align="center" line-height="28px" css-class="basic-text">Property address: {{ $deal['address'] }}</mj-text>
+          <mj-text font-size="16px" color="#3e2636" font-weight="400" font-family="OpenSans, Arial" align="center" line-height="28px" css-class="basic-text">Deal ID: {{ $deal['id'] }}</mj-text>
+	 				<mj-text font-size="16px" color="#3e2636" font-weight="400" font-family="OpenSans, Arial" align="center" line-height="28px" css-class="basic-text">Property Type: {{ $deal['main_type'] }}</mj-text>
+          <mj-text font-size="16px" color="#3e2636" font-weight="400" font-family="OpenSans, Arial" align="center" line-height="28px" css-class="basic-text">Sponsor Name: {{ $deal['sponsor_name'] }}</mj-text>
+          <mj-text font-size="16px" color="#3e2636" font-weight="400" font-family="OpenSans, Arial" align="center" line-height="28px" css-class="basic-text">Asset Type: {{ $deal['loan_type'] }}</mj-text>
+					<mj-button background-color="#055d64" href="{{ $dealUrl }}">View full deal information</mj-button>
+				</mj-column>
+			</mj-section>
+      <mj-section background-color="#f0f7f7" padding="55px 1% 60px">
+				<mj-column>
+					<mj-text font-size="16px" color="#3e2636" font-weight="400" font-family="OpenSans, Arial" align="center" line-height="28px" css-class="basic-text">Quote info</mj-text>
+  <mj-raw>@foreach($quote as $key => $value)</mj-raw>
+          <mj-text font-size="16px" color="#3e2636" font-weight="400" font-family="OpenSans, Arial" align="center" line-height="28px" css-class="basic-text">{{ $key }}: {{ $value }}</mj-text>
+          <mj-raw>@endforeach</mj-raw>
+				</mj-column>
+			</mj-section>
+      <mj-section background-color="#f0f7f7" padding="55px 1% 60px">
+				<mj-column>
+					<mj-text font-size="16px" color="#3e2636" font-weight="400" font-family="OpenSans, Arial" align="center" line-height="28px" css-class="basic-text">Lender information:</mj-text>
+          <mj-text font-size="16px" color="#3e2636" font-weight="400" font-family="OpenSans, Arial" align="center" line-height="28px" css-class="basic-text">{{ $lenderName }}</mj-text>
+          <mj-text font-size="16px" color="#3e2636" font-weight="400" font-family="OpenSans, Arial" align="center" line-height="28px" css-class="basic-text">{{ $lenderEmail }}</mj-text>
+          <mj-raw>@if($lenderPhone)</mj-raw>
+	 				<mj-text font-size="16px" color="#3e2636" font-weight="400" font-family="OpenSans, Arial" align="center" line-height="28px" css-class="basic-text">{{ $lenderPhone }}</mj-text>
+          <mj-raw>@endif</mj-raw>
+				</mj-column>
+			</mj-section>
+			<mj-section background-color="#f0f7f7" padding="55px 1% 60px">
+				<mj-column>
+					<mj-text font-size="16px" color="#3e2636" font-weight="400" font-family="OpenSans, Arial" align="center" line-height="28px" css-class="basic-text">Broker information:</mj-text>
+          <mj-text font-size="16px" color="#3e2636" font-weight="400" font-family="OpenSans, Arial" align="center" line-height="28px" css-class="basic-text">{{ $brokerName }}</mj-text>
+          <mj-text font-size="16px" color="#3e2636" font-weight="400" font-family="OpenSans, Arial" align="center" line-height="28px" css-class="basic-text">{{ $brokerEmail }}</mj-text>
+          <mj-raw>@if($brokerPhone)</mj-raw>
+	 				<mj-text font-size="16px" color="#3e2636" font-weight="400" font-family="OpenSans, Arial" align="center" line-height="28px" css-class="basic-text">{{ $brokerPhone }}</mj-text>
+          <mj-raw>@endif</mj-raw>
+				</mj-column>
+			</mj-section>
+      <mj-section background-color="#f0f7f7" padding="55px 1% 60px">
+				<mj-column>
+					<mj-text font-size="16px" color="#3e2636" font-weight="400" font-family="OpenSans, Arial" align="center" line-height="28px" css-class="basic-text">Reply to this email to take this quote to the finish line!</mj-text>
+				</mj-column>
+			</mj-section>
+		</mj-wrapper>
+        <mj-section background-color="#055d64" padding="40px">
+			<mj-column>
+                <!-- {{ asset('img/email/email_logo.png') }} -->
+				<mj-image width="145px" src="{{ asset('img/email/email_logo_footer.png') }}" alt="Finance Lobby - The CRE Financing Marketplace"></mj-image>
+                <mj-text font-size="13px" color="#ececec" font-weight="300" font-family="OpenSans, Arial" align="center" line-height="15px">&copy; FinanceLobby {{ $year }}</mj-text>
+			</mj-column>
+		</mj-section>
+	</mj-body>
+</mjml>

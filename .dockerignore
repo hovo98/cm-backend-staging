@@ -1,0 +1,22 @@
+/node_modules
+/public/hot
+/public/storage
+/public/profile-images
+/public/company-logos
+/storage/app/profile-images
+/storage/app/company-logos
+/storage/*.key
+/vendor
+/sheet-import
+.env
+.env.backup
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+schema-directives.graphql
+.idea
+
+# k8s secrets
+.do/k8s/secrets.yml

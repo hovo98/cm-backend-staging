@@ -1,0 +1,373 @@
+##########
+########## parts of the main input
+##########
+input DealLocationInput {
+    street_address: String!
+    street_address_2: String
+    city: String!
+    state: String!
+    country: String!
+    zip_code: String!
+    place_id: String!
+    lat: Float
+    long: Float
+    sublocality: String
+    county: String
+    street: String
+}
+
+input DealBlockAndLotInput {
+    blockAndLot: String!
+    block: String!
+    lot: String!
+}
+
+input DealAssetsInput {
+    key: String!
+    val: String!
+}
+
+input DealSponsorInfoInput {
+    name: String
+    ownership: String
+    years_experience: String
+    family_experience: String
+    annual_income: String
+    annual_expenses: String
+    liabilities: String
+    assets_real_estate: String
+    assets_companies: String
+    assets_other: String
+    assets_liquid:  String
+    net_worth: String
+    net_income: String
+    total_assets: String
+}
+
+input DealSponsorInput {
+    sponsorInfo: [DealSponsorInfoInput!]
+    multiple: String
+    id: Int
+    step: String
+}
+
+input DealPurchaseLoanInput {
+    price: Float!
+    estimated_value: String @toInteger
+    estimated_cap_rate: String
+    days_to_close: String @toInteger
+    loan_amount: Float!
+    ltc_purchase: String
+}
+
+input DealExistingLoanInput {
+    amount: Float!
+    lender_name: String!
+}
+
+input DealRefinanceLoanInput {
+    purchasePrice: String @toInteger
+    date: String
+    currentValue: String @toInteger
+    list: String
+    loanAmount: Float
+}
+
+input DealConstructionLoanInput {
+    buying_land: String
+    debt_on_property: String
+    purchase_price: String
+    purchase_date: String
+    debt_amount: String
+    lender_name: String
+    loanAmount: Float
+    show_address_construction: String,
+    floors: String @toInteger
+}
+
+input DealTaxAbatementInput {
+    exists: Boolean!
+    expiration_date: Date
+    phase: String
+}
+
+input DealExpensesInput {
+    taxNumber: String
+    tax: String
+    expDate: String
+    phaseStructure: String
+    payroll: String
+    insurance: String
+    repairs: String
+    payrollAmount: String
+    electricity: String
+    electricityAmount: String
+    electricitySeparatelyMetered: String
+    gas: String
+    gasAmount: String
+    commonArea: String
+    commonAreaAmount: String
+    water: String
+    waterAmount: String
+    management: String
+    managementAmount: String
+    legal: String
+    triple: String
+    reimbursement: String
+    otherExpenses: [OtherExpensesInput]
+    additionalNotes: String
+    elevatorMaintenanceAmount: String
+    elevatorMaintenance: String
+    ooSewerAmount: String
+    gasSeparatelyMetered: String
+    managementCompanyName: String
+    ooWaterAmount: String
+    waterSeparatelyMetered: String
+}
+
+input DealInvestmentDetailsInput {
+    mixedUse: [InvestmentType]
+    propType: InvestmentType
+    retailAmount: String @toInteger
+    retailSquare: String @toInteger
+    retailNumberOfUnitsOccupied: String @toInteger
+    retailSquareFootageOccupied: String @toInteger
+    retailType: String
+    multiAmount: String @toInteger
+    multiSquare: String @toInteger
+    multiNumberOfUnitsOccupied: String @toInteger
+    multiSquareFootageOccupied: String @toInteger
+    officeAmount: String @toInteger
+    officeSquare: String @toInteger
+    officeNumberOfUnitsOccupied: String @toInteger
+    officeSquareFootageOccupied: String @toInteger
+    warehouseAmount: String @toInteger
+    warehouseSquare: String @toInteger
+    warehouseNumberOfUnitsOccupied: String @toInteger
+    warehouseSquareFootageOccupied: String @toInteger
+    numberUnit: String @toInteger
+    numberUnitOccupied: String @toInteger
+    squareFootage: String @toInteger
+    squareFootageOccupied: String @toInteger
+    proposedUse: String
+    noteToLender: String
+
+    amountOfUnits: String @toInteger
+    rentableSellable: String @toInteger
+    retailFloors: String @toInteger
+    multiAmountOfUnits: String @toInteger
+    multiRentableSellable: String @toInteger
+    multiFloors: String @toInteger
+    officeAmountOfunits: String @toInteger
+    officeRentableSellable: String @toInteger
+    officeFloors: String @toInteger
+    industrialAmountOfUnits: String @toInteger
+    industrialRentableSellable: String @toInteger
+    industrialFloors: String @toInteger
+}
+
+input DealOwnerOccupiedInput {
+    business_name: String
+    business_description: String
+    sales_amount: String
+    profit_amount: String
+    borrower_own: String
+    business_age: String
+    sales_amount_YTD: String
+    profit_amount_YTD: String
+    employees: String
+}
+
+input DealConstructionTypePropsInput {
+    units: Int
+    footage: Int
+    floors: Int
+    projections: Int
+    rental_projections: Int
+}
+
+input OtherExpensesInput {
+    type: String
+    amount: String
+}
+
+input OtherIncomeInput {
+    type: String
+    amount: String
+}
+
+input DealConstructionInput {
+    date: String
+    land_cost: String @toInteger
+    current_value: String @toInteger
+    hard_cost: String @toInteger
+    soft_cost: String @toInteger
+    loan_amount: String @toInteger
+    contractor_name: String
+    amount_units: String @toInteger
+    square_footage: String @toInteger
+    floors: String @toInteger
+
+    plans: String
+    second_projection: Boolean
+
+    projections: String
+    projections_sales: String @toInteger
+    projections_per_units: String @toInteger
+    projections_per_sf: String @toInteger
+
+    rental_per: String
+    rental_amount: String @toInteger
+    rental_projections_per_units: String @toInteger
+    rental_projections_per_sf: String @toInteger
+    projectionMixedUse: [projectionMixedUseInput]
+}
+
+input projectionMixedUseInput {
+    tag: String
+    projections: String
+    projections_sales: String
+    projections_per_units: String
+    projections_per_sf: String
+    rental_per: String
+    rental_amount: String
+    rental_projections_per_units: String
+    rental_projections_per_sf: String
+    plans: String
+    second_projection: Boolean
+    plansOrder:[String]
+}
+
+input DealExistingInput {
+    propertyType: String
+    free: String
+    warehouse: String
+    lender: String
+}
+
+input DealRentRollTableInput {
+    occupied: Boolean
+    unit_type: String
+    name: String
+    unit: String
+    bedroom: String
+    lease_start: String
+    lease_end: String
+    sf: String
+    monthle_rent: String
+    annual_rent: String
+    annual_rent_sf: String
+}
+
+input DealSensitivityInput {
+    timeToClose: Int
+    recourse: Int
+    leverage: Int
+    interestRate: Int
+    fees: Int
+    interestOnlyPeriod: Int
+    nonPrepaymentPenalty: Int
+}
+
+input DealRentRollInput {
+    table: [DealRentRollTableInput!]
+    annual_income: String
+    potential_income: String
+    increaseProjection: String
+    increasedNotes: String
+    betterNotes: String
+    capExBudget: String
+    tiBudget: String
+    lcBudget: String
+    timeFrame: String
+    plannedImprovements: String
+    enterCopy: String
+    monthle_total: String
+    annual_total: String
+    annual_sf_total: String
+    other_income: [OtherIncomeInput]
+    vacancy: String
+    occupiedGroos: String
+}
+
+input PriceRangeInput {
+    min: Int
+    max: Int
+}
+
+##########
+########## main input
+##########
+input DealObjectInput {
+    id: Int
+    finished: Boolean
+    finishApproved: Boolean
+    updated_at: Date
+    finished_at: Date
+    step: String
+    location: DealLocationInput
+    sponsor: DealSponsorInput
+    upload_pfs: String
+    assets: [DealAssetsInput!]
+    block_and_lot: DealBlockAndLotInput
+    loan_type: LoanType
+    show_address_purchase: String
+    property_type: PropertyType
+    rent_roll: DealRentRollInput
+    purchase_loan: DealPurchaseLoanInput
+    refinance_loan: DealRefinanceLoanInput
+    construction_loan: DealConstructionLoanInput
+    investment_details: DealInvestmentDetailsInput
+    expenses: DealExpensesInput
+    existing: DealExistingInput
+    owner_occupied: DealOwnerOccupiedInput
+    construction: DealConstructionInput
+    sensitivity: DealSensitivityInput
+    type_of_loans: [Int]
+    force: Boolean
+}
+
+input DealInput {
+    id: Int
+}
+
+input ShareDealInput {
+    id: [Int]
+    email: [String]
+}
+
+##########
+########## main filter input
+##########
+
+input DealObjectFilterInput {
+    context: ContextFiltration
+    filterName: FilterName
+    searchTerms: String
+    loanSize: PriceRangeInput
+    assetTypes: [AssetType]
+    sortBy: SortDeals
+}
+
+input SortDeals {
+    sort: SortByFiltrationDeal
+    by: SortDirectionDeal
+}
+
+##########
+########## deal step status
+##########
+
+input DealStepStatusInput {
+    id: Int
+    status: String
+}
+
+input ManageTableInput {
+    manageTable: [String]
+    table: String
+}
+
+input DealEditInput {
+    id: Int
+}

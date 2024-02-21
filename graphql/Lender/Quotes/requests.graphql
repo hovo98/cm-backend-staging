@@ -1,0 +1,3 @@
+extend type Query {
+    lenderQuotesIndividual(input: LenderQuotesIndividualInput @spread): LenderQuotesIndividualType @inject(context: "user.id", name: "user_id") @field(resolver: "App\\GraphQL\\Requests\\Lender\\Quotes\\Individual") @guard @can(ability: "isLender", model: "App\\User")
+}

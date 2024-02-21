@@ -1,0 +1,177 @@
+input LoginInput {
+    username: String! @toLowerCase
+    password: String!
+}
+
+input SparkLoginInput {
+    return_url: String
+}
+
+input RefreshTokenInput {
+    refresh_token: String
+}
+
+type SparkType {
+    success: String
+}
+
+type AuthPayload {
+    access_token: String
+    refresh_token: String
+    expires_in: Int
+    token_type: String
+    user: User
+    payment_methods: [PaymentMethodType]
+    tempToken: String
+    show_type_of_loans: Boolean
+    non_beta_user: Boolean
+}
+
+type RefreshTokenPayload {
+    access_token: String!
+    refresh_token: String!
+    expires_in: Int!
+    token_type: String!
+}
+
+type LogoutResponse {
+    status: String!
+    message: String
+}
+
+type ForgotPasswordResponse {
+    status: String!
+    message: String
+}
+
+type RegisterResponse {
+    token: String
+    status: RegisterStatuses!
+}
+
+type UpdatePasswordResponse {
+    status: String!
+    message: String
+}
+
+enum RegisterStatuses {
+    MUST_VERIFY_EMAIL
+    SUCCESS
+}
+
+input ForgotPasswordInput {
+    email: String! @rules(apply: ["required", "email"]) @toLowerCase
+    recaptcha:String! @rules(apply: ["required"])
+}
+
+input NewPasswordWithCodeInput {
+    token: String! @rules(apply: ["required", "string"])
+    password: String! @rules(apply: ["required", "min:8", "regex:/[A-Z]/", "regex:/[0-9]/", "App\\Rules\\SpecialChar"])
+    recaptcha:String! @rules(apply: ["required"])
+}
+
+input RegisterInput {
+    role: String!
+    first_name: String!
+    last_name: String!
+    email: String! @rules(apply: ["required", "email", "unique:users,email"]) @toLowerCase
+    password: String! @rules(apply: ["required", "min:8", "regex:/[A-Z]/", "regex:/[0-9]/", "App\\Rules\\SpecialChar"])
+    token_track_referral: String
+    invited_by: ID
+    timezone: String
+    recaptcha:String! @rules(apply: ["required"])
+    gtm_hidden_id: String
+}
+
+input UpdateInput {
+    id: ID!
+    first_name: String
+    last_name: String
+    phone: String
+    timezone: String
+}
+
+type UpdateResponse {
+    success: Boolean!
+    message: String
+    user: User
+}
+
+input VerifyEmailInput {
+    email: String!
+    recaptcha:String! @rules(apply: ["required"])
+}
+
+input UpdatePassword {
+    old_password: String!
+    password: String! @rules(apply: ["required", "min:8", "regex:/[A-Z]/", "regex:/[0-9]/", "App\\Rules\\SpecialChar"])
+}
+
+type DeleteUserResponse {
+    message: String!
+    success: Boolean!
+}
+
+type RestoreUserResponse {
+    message: String!
+    success: Boolean!
+}
+
+type CheckEmailResponse {
+    success: Boolean!
+    message: String!
+}
+
+type SaveLanderDealResponse {
+    success: Boolean!
+    message: String!
+}
+
+input ProfileInfoLender {
+    biography: String
+    specialty: String
+    linkedin_url: String
+}
+
+type ProfileInfoLenderResponse {
+    biography: String
+    specialty: String
+    linkedin_url: String
+}
+
+type ProfileImageResponse {
+    image: String
+}
+
+type VerificationMailResponse {
+    success: Boolean!
+    message: String!
+}
+
+input InvitationInput {
+    inviteLender: [String] @toLowerCase
+    inviteBroker: [String] @toLowerCase
+}
+
+type InvitationResponse {
+    errorsResponseBroker: [ErrorsResponseInvitation]
+    errorsResponseLender: [ErrorsResponseInvitation]
+}
+
+type ErrorsResponseInvitation {
+    email: String
+    message: String
+}
+
+type UpdateResponseProfileImg {
+    success: Boolean!
+    message: String
+    user: User
+    image: String
+}
+
+type ProfileInfoBrokerResponse {
+    dealsPosted: Int
+    quotesReceived: Int
+    pairedDeals: Int
+}
